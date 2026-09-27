@@ -1,19 +1,128 @@
 [gd_scene format=3 uid="uid://dt7fmj75mippk"]
 
 [ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra.gd" id="1_psguu"]
-[ext_resource type="Texture2D" uid="uid://pk423p3tuvci" path="res://icon.svg" id="2_432d2"]
+[ext_resource type="Texture2D" uid="uid://bthnrjltsnwty" path="res://assets/astra/treads-right.png" id="2_432d2"]
+[ext_resource type="Texture2D" uid="uid://ti55imal6d2l" path="res://assets/astra/bumps-right.png" id="3_nlhyk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toviy"]
-radius = 9.0
-height = 40.0
+radius = 75.0
+height = 156.0
+
+[sub_resource type="Animation" id="Animation_f3u0p"]
+resource_name = "BumpsRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Right/TreadBumpsRight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_atdaj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Right/TreadBumpsRight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgprr"]
+_data = {
+&"BumpsRight": SubResource("Animation_f3u0p"),
+&"RESET": SubResource("Animation_atdaj")
+}
+
+[sub_resource type="Animation" id="Animation_88s7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right/TreadsRight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_vl3ou"]
+resource_name = "TreadsRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right/TreadsRight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ckar6"]
+resource_name = "right-drive"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right/TreadsRight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h81f"]
+_data = {
+&"RESET": SubResource("Animation_88s7e"),
+&"TreadsRight": SubResource("Animation_vl3ou"),
+&"right-drive": SubResource("Animation_ckar6")
+}
 
 [node name="Astra" type="CharacterBody2D" unique_id=445600270]
 script = ExtResource("1_psguu")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
-position = Vector2(-2, -1)
+position = Vector2(-241, 24)
 shape = SubResource("CapsuleShape2D_toviy")
 
-[node name="Astra Texture" type="Sprite2D" parent="Astra Hurtbox" unique_id=329425452]
-position = Vector2(84, -21)
+[node name="BumpsAnimation" type="AnimationPlayer" parent="." unique_id=1869450624]
+root_node = NodePath("../TreadsAnimation")
+libraries/ = SubResource("AnimationLibrary_jgprr")
+
+[node name="TreadsAnimation" type="AnimationPlayer" parent="." unique_id=485497165]
+libraries/ = SubResource("AnimationLibrary_6h81f")
+
+[node name="Right" type="Node2D" parent="." unique_id=101168323]
+
+[node name="TreadsRight" type="Sprite2D" parent="Right" unique_id=2134123643]
+texture_filter = 1
 texture = ExtResource("2_432d2")
+hframes = 2
+vframes = 3
+frame = 3
+
+[node name="TreadBumpsRight" type="Sprite2D" parent="Right" unique_id=757892461]
+texture_filter = 1
+texture = ExtResource("3_nlhyk")
+hframes = 2
+vframes = 3
+frame = 1
