@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dt7fmj75mippk"]
+
+[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra.gd" id="1_psguu"]
+[ext_resource type="Texture2D" uid="uid://pk423p3tuvci" path="res://icon.svg" id="2_432d2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toviy"]
+radius = 9.0
+height = 40.0
+
+[node name="Astra" type="CharacterBody2D" unique_id=445600270]
+script = ExtResource("1_psguu")
+
+[node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_toviy")
+
+[node name="Astra Texture" type="Sprite2D" parent="Astra Hurtbox" unique_id=329425452]
+position = Vector2(84, -21)
+texture = ExtResource("2_432d2")
