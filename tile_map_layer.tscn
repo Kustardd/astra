@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bl551lyylk0n5"]
+
+[ext_resource type="Texture2D" uid="uid://pk423p3tuvci" path="res://icon.svg" id="1_0ugm7"]
+[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra.gd" id="1_vqaso"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toviy"]
+radius = 9.0
+height = 40.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_toviy"]
+
+[node name="World" type="Node2D" unique_id=137119163]
+y_sort_enabled = true
+
+[node name="Temporary Background" type="ColorRect" parent="." unique_id=771463958]
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.41862804, 0.41862804, 0.41862804, 1)
+
+[node name="Astra" type="CharacterBody2D" parent="Temporary Background" unique_id=1316189894]
+script = ExtResource("1_vqaso")
+
+[node name="Astra Hurtbox" type="CollisionShape2D" parent="Temporary Background/Astra" unique_id=923461299]
+position = Vector2(64, 140)
+shape = SubResource("CapsuleShape2D_toviy")
+
+[node name="Astra Texture" type="Sprite2D" parent="Temporary Background/Astra/Astra Hurtbox" unique_id=1518894990]
+position = Vector2(0, 2)
+texture = ExtResource("1_0ugm7")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=218689414]
+position = Vector2(72, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1072259017]
+shape = SubResource("WorldBoundaryShape2D_toviy")
