@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bthnrjltsnwty" path="res://assets/astra/treads-right.png" id="2_432d2"]
 [ext_resource type="Texture2D" uid="uid://ti55imal6d2l" path="res://assets/astra/bumps-right.png" id="3_nlhyk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toviy"]
-radius = 75.0
-height = 156.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
+size = Vector2(134.625, 50.5)
 
 [sub_resource type="Animation" id="Animation_f3u0p"]
 resource_name = "BumpsRight"
@@ -101,8 +100,8 @@ _data = {
 script = ExtResource("1_psguu")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
-position = Vector2(-241, 24)
-shape = SubResource("CapsuleShape2D_toviy")
+position = Vector2(-1.3125, 101.25)
+shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="BumpsAnimation" type="AnimationPlayer" parent="." unique_id=1869450624]
 root_node = NodePath("../TreadsAnimation")
