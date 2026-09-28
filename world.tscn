@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://astra.tscn" id="1_0ugm7"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_toviy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
+size = Vector2(630, 20)
 
 [node name="World" type="Node2D" unique_id=137119163]
 y_sort_enabled = true
@@ -14,9 +15,11 @@ color = Color(0.41862804, 0.41862804, 0.41862804, 1)
 
 [node name="Astra" parent="Temporary Background" unique_id=445600270 instance=ExtResource("1_0ugm7")]
 unique_name_in_owner = true
+position = Vector2(188, 289)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=218689414]
 position = Vector2(72, 648)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1072259017]
-shape = SubResource("WorldBoundaryShape2D_toviy")
+position = Vector2(251, -55)
+shape = SubResource("RectangleShape2D_0ugm7")
