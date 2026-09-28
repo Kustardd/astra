@@ -97,6 +97,7 @@ _data = {
 }
 
 [node name="Astra" type="CharacterBody2D" unique_id=445600270]
+motion_mode = 1
 script = ExtResource("1_psguu")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
