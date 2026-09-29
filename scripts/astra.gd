@@ -63,17 +63,3 @@ func updateDirection(directionVector: Vector2):
 			currentDirection = Direction.Back
 			
 # Work in progress - zilin u do it ur way hehe @nikki_aint_it
-func playAnimations():
-	match currentState:
-		State.Idle:
-			match currentDirection:
-				Direction.Front: anim_player.play("idleFront")
-				Direction.Back: anim_player.play("idleBack")
-				Direction.Left: anim_player.play("idleLeft")
-				Direction.Right: anim_player.play("idleRight")
-		State.Moving:
-			match currentDirection:
-				Direction.Front: anim_player.play("walkFront")
-				Direction.Back: anim_player.play("walkBack")
-				Direction.Left: anim_player.play("walkLeft")
-				Direction.Right: anim_player.play("walkRight")

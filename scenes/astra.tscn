@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dt7fmj75mippk"]
 
-[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra.gd" id="1_psguu"]
+[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://scripts/astra.gd" id="1_psguu"]
 [ext_resource type="Texture2D" uid="uid://bthnrjltsnwty" path="res://assets/astra/treads-right.png" id="2_432d2"]
 [ext_resource type="Texture2D" uid="uid://ti55imal6d2l" path="res://assets/astra/bumps-right.png" id="3_nlhyk"]
+[ext_resource type="Texture2D" uid="uid://cjhi1dto7awwb" path="res://assets/astra/treads-left.png" id="4_nlhyk"]
+[ext_resource type="Script" uid="uid://dxunlgjrq6v4t" path="res://scripts/states/State Machine.gd" id="5_3dd3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
 size = Vector2(134.625, 50.5)
@@ -126,3 +128,22 @@ texture = ExtResource("3_nlhyk")
 hframes = 2
 vframes = 3
 frame = 1
+
+[node name="Left" type="Node2D" parent="." unique_id=1717764870]
+
+[node name="TreadsLeft" type="Sprite2D" parent="Left" unique_id=1896356925]
+texture_filter = 1
+texture = ExtResource("4_nlhyk")
+hframes = 2
+vframes = 3
+frame = 3
+
+[node name="TreadBumpsLeft" type="Sprite2D" parent="Left" unique_id=2089370017]
+texture_filter = 1
+texture = ExtResource("3_nlhyk")
+hframes = 2
+vframes = 3
+frame = 1
+
+[node name="State Machine" type="Node2D" parent="." unique_id=498990391]
+script = ExtResource("5_3dd3b")
