@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dt7fmj75mippk"]
+
+[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra/astra.gd" id="1_psguu"]
+[ext_resource type="Texture2D" uid="uid://bsolxni50mxry" path="res://astra/consolidated/arm-astra.png" id="3_slujx"]
+[ext_resource type="Script" uid="uid://dmkb4sg4eq3u4" path="res://astra/arm.gd" id="4_g210e"]
+[ext_resource type="Script" uid="uid://dxunlgjrq6v4t" path="res://scripts/states/State Machine.gd" id="5_3dd3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
+size = Vector2(134.625, 50.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysmyq"]
+atlas = ExtResource("3_slujx")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80elw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysmyq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Astra" type="CharacterBody2D" unique_id=445600270]
+motion_mode = 1
+script = ExtResource("1_psguu")
+
+[node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
+position = Vector2(-33, 113)
+shape = SubResource("RectangleShape2D_0ugm7")
+
+[node name="State Machine" type="Node2D" parent="." unique_id=498990391]
+script = ExtResource("5_3dd3b")
+
+[node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_80elw")
+script = ExtResource("4_g210e")

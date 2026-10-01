@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://dt7fmj75mippk"]
+
+[ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://astra/astra.gd" id="1_psguu"]
+[ext_resource type="Texture2D" uid="uid://bn6wcak4ohrpf" path="res://astra/consolidated/head-astra.png" id="3_hte64"]
+[ext_resource type="Texture2D" uid="uid://bsolxni50mxry" path="res://astra/consolidated/arm-astra.png" id="3_slujx"]
+[ext_resource type="Script" uid="uid://dmkb4sg4eq3u4" path="res://astra/arm.gd" id="4_g210e"]
+[ext_resource type="Script" uid="uid://csfftfu3m7bmm" path="res://astra/head.gd" id="4_juhpt"]
+[ext_resource type="Script" uid="uid://dxunlgjrq6v4t" path="res://scripts/states/State Machine.gd" id="5_3dd3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
+size = Vector2(133.3125, 50.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o0qk"]
+atlas = ExtResource("3_hte64")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip0q4"]
+atlas = ExtResource("3_hte64")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v03s5"]
+atlas = ExtResource("3_hte64")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w8xn"]
+atlas = ExtResource("3_hte64")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2arpm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o0qk")
+}],
+"loop": 1,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip0q4")
+}],
+"loop": 1,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v03s5")
+}],
+"loop": 1,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w8xn")
+}],
+"loop": 1,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g210e"]
+atlas = ExtResource("3_slujx")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hte64"]
+atlas = ExtResource("3_slujx")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysmyq"]
+atlas = ExtResource("3_slujx")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhpt"]
+atlas = ExtResource("3_slujx")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80elw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g210e")
+}],
+"loop": 1,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hte64")
+}],
+"loop": 1,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysmyq")
+}],
+"loop": 1,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juhpt")
+}],
+"loop": 1,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[node name="Astra" type="CharacterBody2D" unique_id=445600270]
+motion_mode = 1
+script = ExtResource("1_psguu")
+
+[node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
+position = Vector2(-57.65625, 99)
+shape = SubResource("RectangleShape2D_0ugm7")
+
+[node name="State Machine" type="Node2D" parent="." unique_id=498990391]
+script = ExtResource("5_3dd3b")
+
+[node name="Head" type="AnimatedSprite2D" parent="." unique_id=583319050]
+sprite_frames = SubResource("SpriteFrames_2arpm")
+animation = &"Front"
+script = ExtResource("4_juhpt")
+
+[node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_80elw")
+animation = &"Front"
+script = ExtResource("4_g210e")
+wobbleLength = 4
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1423717219]
+position_smoothing_enabled = true
