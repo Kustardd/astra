@@ -6,11 +6,7 @@ extends CharacterBody2D
 @export var baseSpeedMultiplier := 1.5
 
 @onready var anim_player: AnimatedSprite2D = $AnimatedSprite2D 
-
-enum State {
-	Idle, 
-	Moving
-}
+@onready var direction: String
 
 enum Direction {
 	Left,

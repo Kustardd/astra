@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 	if (abs(origin-position.y)-wobbleLength)>=8:
 		direction*= -1
 	position.y +=wobbleStrength*direction*delta
-	print(position.y,"h")
+	#print(position.y,"h")
