@@ -1,5 +1,6 @@
-extends Node2D
+extends Node
 
+class_name StateMachine 
 @export var initial_state : State
 
 var current_state : State
@@ -9,31 +10,44 @@ func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-			child.Transitioned.connect(on_child_transition)
+			child.state_machine = self
 			
 	if initial_state:
-		initial_state.enter()
-		current_state = initial_state 
+		change_state(initial_state.name.to_lower())
 			
 func _process(delta: float) -> void:
 	if current_state:
-		current_state.Update(delta)
+		current_state.update(delta)
 	
 func _physics_process(delta: float) -> void:
 	if current_state:
-		current_state.Physics_Update(delta)
+		current_state.physics_update(delta)
 		
-func on_child_transition(state, new_state_name):
-	if state != current_state:
-		return
-		
-	var new_state = states.get(new_state_name.to_lower())
-	if !new_state:
-		return
-		
+func _input(event: InputEvent) -> void:
+	if current_state:
+		current_state.handle_input(event)
+
+func change_state(new_state_name: String) -> void:
 	if current_state:
 		current_state.exit()
-
-	new_state.enter()
 	
-	current_state = new_state
+	current_state = states.get(new_state_name.to_lower())
+	
+	if current_state:
+		current_state.enter()
+	
+
+#func on_child_transition(state, new_state_name):
+	#if state != current_state:
+		#return
+		#
+	#var new_state = states.get(new_state_name.to_lower())
+	#if !new_state:
+		#return
+		#
+	#if current_state:
+		#current_state.exit()
+#
+	#new_state.enter()
+	#
+	#current_state = new_state

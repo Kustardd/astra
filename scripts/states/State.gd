@@ -1,16 +1,19 @@
 extends Node
 class_name State
 
-signal Transitioned
+var state_machine: StateMachine
 
-func Enter():
+func enter():
 	pass
 	
-func Exit():
+func exit():
 	pass
 	
-func Update(_delta: float):
+func update(_delta: float):
 	pass
 	
-func Physics_Update(_delta: float):
+func physics_update(_delta: float):
+	pass
+
+func handle_input(event: InputEvent):
 	pass
