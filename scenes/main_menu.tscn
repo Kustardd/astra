@@ -1,13 +1,34 @@
-[gd_scene format=3 uid="uid://3b8733frqced"]
+[gd_scene format=3 uid="uid://ci0m8lxhucc1w"]
 
-[ext_resource type="Script" uid="uid://igrx324glw3" path="res://scripts/main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://dkl4w3iw7fgu6" path="res://assets/main menu/start.png" id="2_glbon"]
 [ext_resource type="Texture2D" uid="uid://diffyrwi5upo5" path="res://assets/main menu/options.png" id="3_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://dgug7b3sernpb" path="res://assets/main menu/quit.png" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://b0x817u7d2i2r" path="res://assets/main menu/saves.png" id="5_8qtwp"]
 
+[sub_resource type="GDScript" id="GDScript_wu84c"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$Buttons/Start.pressed.connect(_on_start_pressed)
+	$Buttons/Options.pressed.connect(_on_options_pressed)
+	$Buttons/Quit.pressed.connect(_on_quit_pressed)
+
+func _on_start_pressed():
+	get_tree().change_scene_to_file(\"res://astra.tscn\")
+	
+func _on_options_pressed():
+	pass
+	
+func _on_quit_pressed():
+	get_tree().quit()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Main Menu" type="Node2D" unique_id=1000489263]
-script = ExtResource("1_06t4h")
+script = SubResource("GDScript_wu84c")
 
 [node name="Game" type="Node2D" parent="." unique_id=1846038369]
 
@@ -16,6 +37,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Start" type="TextureButton" parent="Buttons" unique_id=1727542731]
 layout_mode = 0
@@ -26,6 +48,7 @@ offset_bottom = 96.0
 texture_normal = ExtResource("2_glbon")
 texture_pressed = ExtResource("2_glbon")
 texture_hover = ExtResource("2_glbon")
+metadata/_edit_use_anchors_ = true
 
 [node name="Options" type="TextureButton" parent="Buttons" unique_id=1454873265]
 layout_mode = 0
@@ -36,6 +59,7 @@ offset_bottom = 312.0
 texture_normal = ExtResource("3_nlkkf")
 texture_pressed = ExtResource("3_nlkkf")
 texture_hover = ExtResource("3_nlkkf")
+metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="TextureButton" parent="Buttons" unique_id=1369818298]
 layout_mode = 0
@@ -46,6 +70,7 @@ offset_bottom = 105.0
 texture_normal = ExtResource("4_qe12f")
 texture_pressed = ExtResource("4_qe12f")
 texture_hover = ExtResource("4_qe12f")
+metadata/_edit_use_anchors_ = true
 
 [node name="Saves" type="TextureButton" parent="Buttons" unique_id=495874328]
 layout_mode = 0
@@ -54,3 +79,4 @@ offset_top = 179.0
 offset_right = 287.0
 offset_bottom = 261.0
 texture_normal = ExtResource("5_8qtwp")
+metadata/_edit_use_anchors_ = true
