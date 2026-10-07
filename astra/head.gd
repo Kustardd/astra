@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (abs(origin-position.y)-wobbleLength)>=8:
+	if (abs(origin-position.y)-wobbleLength)>=wobbleLength:
 		direction*= -1
 	position.y +=wobbleStrength*direction*delta
 	#print(position.y,"h")

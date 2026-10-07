@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bl551lyylk0n5"]
 
-[ext_resource type="PackedScene" uid="uid://3b8733frqced" path="res://scenes/main_menu.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://astra/astra.tscn" id="2_4wyf3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
@@ -8,8 +7,6 @@ size = Vector2(630, 20)
 
 [node name="World" type="Node2D" unique_id=137119163]
 y_sort_enabled = true
-
-[node name="Main Menu" parent="." unique_id=1000489263 instance=ExtResource("1_rwgxs")]
 
 [node name="Temporary Background" type="ColorRect" parent="." unique_id=771463958]
 offset_right = 1151.0
@@ -27,4 +24,3 @@ shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("2_4wyf3")]
 unique_name_in_owner = true
-position = Vector2(188, 289)
