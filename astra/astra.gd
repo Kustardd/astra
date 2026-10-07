@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+#added edit for practice push in Github
+
 @onready var head := get_node("Head")
 @onready var arm := get_node("Arm")
 @onready var body := get_node("Body")
