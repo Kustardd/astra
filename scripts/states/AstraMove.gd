@@ -31,7 +31,7 @@ func physics_update(delta):
 	elif yDirection < 0:
 		yDirection = -1
 		if xDirection == 0:
-			astra.direction = "back"
+			astra.direction = "front"
 
 	
 	if xDirection == 0 and yDirection == 0:
