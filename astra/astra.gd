@@ -102,7 +102,7 @@ func bumps_animation(direction):
 		bumps.stop()
 		
 func _physics_process(delta: float) -> void:
-	pass
+	move_and_slide()
 	
 	#to find position change
 	#if position != original:

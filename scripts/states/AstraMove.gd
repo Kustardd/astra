@@ -38,8 +38,10 @@ func physics_update(delta):
 		state_machine.change_state("AstraIdle")
 		#endregion
 	
-	astra.position += (astra.baseSpeed*(Vector2(xDirection, yDirection).normalized())*delta)
+	astra.velocity = (astra.baseSpeed*(Vector2(xDirection, yDirection).normalized()))
+
 
 func exit():
 	var astra = state_machine.get_parent()
+	astra.velocity = Vector2.ZERO
 	astra.moving = false
