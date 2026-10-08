@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c1llbfsaafnyr"]
+
+[ext_resource type="Script" uid="uid://nw7xbyrxu0op" path="res://scenes/test_room.gd" id="1_im37l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2arpm"]
+size = Vector2(86.5, 76.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80elw"]
+size = Vector2(403, 151)
+
+[node name="TestRoom" type="Node2D" unique_id=520124421]
+script = ExtResource("1_im37l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789115124]
+offset_left = -214.0
+offset_top = -129.0
+offset_right = 186.0
+offset_bottom = 140.0
+color = Color(0.36727744, 0.21006814, 0.036346033, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Roof" type="Polygon2D" parent="ColorRect" unique_id=668728318]
+polygon = PackedVector2Array(-1, -6, 171, -160, 396, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2083331322]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1777935480]
+position = Vector2(-49, 149)
+shape = SubResource("RectangleShape2D_2arpm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=553356906]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=889012434]
+position = Vector2(-17, 64)
+shape = SubResource("RectangleShape2D_80elw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

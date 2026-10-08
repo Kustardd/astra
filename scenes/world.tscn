@@ -10,21 +10,23 @@ size = Vector2(630, 114)
 [node name="World" type="Node2D" unique_id=137119163]
 y_sort_enabled = true
 
-[node name="Temporary Background" type="ColorRect" parent="." unique_id=771463958]
+[node name="Outside" type="Node2D" parent="." unique_id=1965241333]
+
+[node name="Temporary Background" type="ColorRect" parent="Outside" unique_id=771463958]
 offset_right = 1151.0
 offset_bottom = 649.0
 color = Color(0.41862804, 0.41862804, 0.41862804, 1)
 
-[node name="Walls" type="StaticBody2D" parent="." unique_id=218689414]
+[node name="Walls" type="StaticBody2D" parent="Outside" unique_id=218689414]
 position = Vector2(72, 648)
 physics_material_override = SubResource("PhysicsMaterial_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1072259017]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Walls" unique_id=1072259017]
 position = Vector2(-278, -409)
 shape = SubResource("RectangleShape2D_0ugm7")
 
-[node name="Rendering" type="Node2D" parent="." unique_id=458833726]
+[node name="Rendering" type="Node2D" parent="Outside" unique_id=458833726]
 
-[node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("2_4wyf3")]
+[node name="Astra" parent="Outside/Rendering" unique_id=445600270 instance=ExtResource("2_4wyf3")]
 unique_name_in_owner = true
 position = Vector2(-480, -41)
