@@ -6,10 +6,10 @@ func enter():
 	astra.moving = true
 
 
-func physics_update(delta):
+func physics_update(_delta):
 	var astra = state_machine.get_parent()
 	
-	var speed := 250
+	var _speed := 250
 	var xDirection = Input.get_axis("left","right")
 	var yDirection = Input.get_axis("front", "back")
 	

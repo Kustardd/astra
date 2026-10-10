@@ -13,8 +13,22 @@ extends CharacterBody2D
 @export var friction := 2000.0
 @export var baseSpeedMultiplier := 1.5
 
+const SAVE_PATH = "user://saves.cfg"
+@onready var chosen_version = "Save1"
 @onready var original:= position
-@onready var direction:= "front"
+@onready var og_direction = true
+@onready var direction = "front"
+
+func load_direction(save_version):
+	var save_file = ConfigFile.new()
+	var error = save_file.load(SAVE_PATH)
+	if error != OK:
+		print("No saved direction, starting from original direction.")
+	else:
+		print("Loaded to saved direction.")
+		direction = save_file.get_value("Player_Direction", save_version, "front")
+
+
 
 var moving:= false
 
@@ -25,85 +39,88 @@ enum Direction {
 	Front
 }
 
-func _process(delta: float) -> void:
-	print(direction)
+func _process(_delta: float) -> void:
+	if og_direction == true:
+		load_direction(chosen_version)
+		og_direction = false
+	
 	play_animation(direction)
 	
-func play_animation(direction):
-	head_animation(direction)
-	arm_animation(direction)
-	body_animation(direction)
-	treads_animation(direction)
-	bumps_animation(direction)
+func play_animation(movement_direction): #changed the name of this and following parameters since it was causing a shadowed variable error, the name of the variable was the same as the name of the parameter it was filling
+	head_animation(movement_direction)
+	arm_animation(movement_direction)
+	body_animation(movement_direction)
+	treads_animation(movement_direction)
+	bumps_animation(movement_direction)
 	
-func head_animation(direction):
-	if direction == "front":
+func head_animation(movement_direction):
+	if movement_direction == "front":
 		head.play("Front")
-	elif direction == "back":
+	elif movement_direction == "back":
 		head.play("Back")
-	elif direction == "left":
+	elif movement_direction == "left":
 		head.play("Left")
 	else: head.play("Right")
 	
-func arm_animation(direction):
-	if direction == "front":
+func arm_animation(movement_direction):
+	if movement_direction == "front":
 		arm.play("Front")
-	elif direction == "back":
+	elif movement_direction == "back":
 		arm.play("Back")
-	elif direction == "left":
+	elif movement_direction == "left":
 		arm.play("Left")
 	else: arm.play("Right")
 	
-func body_animation(direction):
-	if direction == "front":
+func body_animation(movement_direction):
+	if movement_direction == "front":
 		body.play("Front")
 		body.z_index = 1
-	elif direction == "back":
+	elif movement_direction == "back":
 		body.play("Back")
 		body.z_index = 0
-	elif direction == "left":
+	elif movement_direction == "left":
 		body.play("Left")
 		body.z_index = 0
 	else: 
 		body.play("Right")
 		body.z_index = 0
 		
-func treads_animation(direction):
+func treads_animation(movement_direction):
 	if moving:
-		if direction == "front":
+		if movement_direction == "front":
 			treads.play("Front")
-		elif direction == "back":
+		elif movement_direction == "back":
 			treads.play("Back")
-		elif direction == "left":
+		elif movement_direction == "left":
 			treads.play("Left_Move")
 		else: treads.play("Right_Move")
 	else:
-		if direction == "front" or direction == "back":
+		if movement_direction == "front" or movement_direction == "back":
 			treads.stop()
-		elif direction == "left":
+		elif movement_direction == "left":
 			treads.play("Left_Stop")
-		else: treads.play("Right_Stop")	
+		else: treads.play("Right_Stop")
 	
-func bumps_animation(direction):
+func bumps_animation(movement_direction):
 	if moving:
-		if direction == "front":
+		if movement_direction == "front":
 			bumps.play("Front")
-		elif direction == "back":
+		elif movement_direction == "back":
 			bumps.play("Back")
-		elif direction == "left":
+		elif movement_direction == "left":
 			bumps.play("Left")
 		else: bumps.play("Right")
 	else:
-		if direction == "front":
+		if movement_direction == "front":
 			bumps.play("Front")
-		elif direction == "back":
+		elif movement_direction == "back":
 			bumps.play("Back")
-		elif direction == "left":
+		elif movement_direction == "left":
 			bumps.play("Left")
 		else: bumps.play("Right")
 		bumps.stop()
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	#to find position change

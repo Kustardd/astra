@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_caaci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
-size = Vector2(256, 92)
+size = Vector2(156, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0skc"]
 atlas = ExtResource("3_v03s5")
@@ -376,7 +376,7 @@ motion_mode = 1
 script = ExtResource("1_psguu")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
-position = Vector2(0, 82)
+position = Vector2(2, 82)
 shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1345246276]
@@ -388,9 +388,10 @@ animation = &"Front"
 [node name="Treads" type="AnimatedSprite2D" parent="." unique_id=1480341040]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_hdqc5")
-animation = &"Front"
+animation = &"Left_Move"
 
 [node name="Bumps" type="AnimatedSprite2D" parent="." unique_id=74732400]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6kg0m")
 animation = &"Front"
 
