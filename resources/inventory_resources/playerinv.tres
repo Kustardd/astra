@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inv" format=3 uid="uid://dts2j14ca63qx"]
+
+[ext_resource type="Script" uid="uid://bg3fvqa3apgrm" path="res://scripts/inventory/inventory_diary.gd" id="1_467fc"]
+[ext_resource type="Resource" uid="uid://buyo143merqbg" path="res://resources/inventory_resources/diary.tres" id="2_ov5j1"]
+[ext_resource type="Script" uid="uid://cf34prmkan5vh" path="res://inventory.gd" id="3_kfo2q"]
+
+[resource]
+script = ExtResource("3_kfo2q")
+items = Array[ExtResource("1_467fc")]([ExtResource("2_ov5j1"), null, null, null, null, null, ExtResource("2_ov5j1"), ExtResource("2_ov5j1"), null, null, null, null])
+metadata/_custom_type_script = "uid://cf34prmkan5vh"

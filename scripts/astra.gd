@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var treads := get_node("Treads")
 @onready var bumps := get_node("Bumps") 
 
+@export var inv: Inv
 @export var baseSpeed := 300.0
 @export var baseAccel := 1500.0
 @export var friction := 2000.0

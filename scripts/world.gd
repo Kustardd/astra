@@ -1,6 +1,6 @@
 extends Node2D
 
-const PLAYER_SCENE = preload("res://astra/astra.tscn")
+const PLAYER_SCENE = preload("res://scenes/astra.tscn")
 const SAVE_PATH = "user://saves.cfg"
 @onready var player = $Outside/Rendering/Astra
 @onready var start_pos = $StartPosition
