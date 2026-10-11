@@ -18,6 +18,7 @@ const SAVE_PATH = "user://saves.cfg"
 @onready var original:= position
 @onready var og_direction = true
 @onready var direction = "front"
+var moving:= false
 
 func load_direction(save_version):
 	var save_file = ConfigFile.new()
@@ -28,17 +29,15 @@ func load_direction(save_version):
 		print("Loaded to saved direction.")
 		direction = save_file.get_value("Player_Direction", save_version, "front")
 
-
-
-var moving:= false
-
 func _process(_delta: float) -> void:
 	if og_direction == true:
 		load_direction(chosen_version)
 		og_direction = false
 	
 	play_animation(direction)
-	
+
+#region animations
+
 func play_animation(movement_direction): #changed the name of this and following parameters since it was causing a shadowed variable error, the name of the variable was the same as the name of the parameter it was filling
 	head_animation(movement_direction)
 	arm_animation(movement_direction)
@@ -114,53 +113,7 @@ func bumps_animation(movement_direction):
 		else: bumps.play("Right")
 		bumps.stop()
 		
+#endregion
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	
-	#to find position change
-	#if position != original:
-		#original = position
-		#print(original)
-		
-	#region kavin's stuff
-	#var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	#var maxSpeed := baseSpeed * baseSpeedMultiplier
-	#var targetSpeed := direction * maxSpeed
-	#var accelerationRate := baseAccel
-	#
-	#if direction != Vector2.ZERO:
-		#currentState = State.Moving
-	#else:
-		#currentState = State.Idle
-	#
-	#match currentState:
-		#State.Idle:
-			#processIdleState(delta)
-		#State.Moving:
-			#processMovingState(direction, delta)
-			#
-	##playAnimation()
-	#move_and_slide()
-	#
-#func processIdleState(delta: float):
-	#velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	#
-#func processMovingState(direction: Vector2, delta: float):
-	#var maxSpeed = baseSpeed * baseSpeedMultiplier
-	#var targetSpeed = direction * maxSpeed
-	#velocity = velocity.move_toward(targetSpeed, baseAccel * delta)
-	#
-#func updateDirection(directionVector: Vector2):
-	#if abs(directionVector.x) > abs(directionVector.y):
-		#if directionVector.x > 0:
-			#currentDirection = Direction.Right
-		#else: 
-			#currentDirection = Direction.Left
-	#else: 
-		#if directionVector.y > 0:
-			#currentDirection = Direction.Front
-		#else: 
-			#currentDirection = Direction.Back
-			
-# Work in progress - zilin u do it ur way hehe @nikki_aint_it
-#endregion

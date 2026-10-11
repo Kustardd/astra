@@ -388,7 +388,7 @@ animation = &"Front"
 [node name="Treads" type="AnimatedSprite2D" parent="." unique_id=1480341040]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_hdqc5")
-animation = &"Left_Move"
+animation = &"Back"
 
 [node name="Bumps" type="AnimatedSprite2D" parent="." unique_id=74732400]
 texture_filter = 1

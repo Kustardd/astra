@@ -27,6 +27,12 @@ physics_material_override = SubResource("PhysicsMaterial_nnsk1")
 position = Vector2(-278, -409)
 shape = SubResource("RectangleShape2D_0ugm7")
 
+[node name="ColorRect" type="ColorRect" parent="Outside/Walls" unique_id=1225068536]
+offset_left = -585.0
+offset_top = -456.0
+offset_right = 40.0
+offset_bottom = -350.0
+
 [node name="Rendering" type="Node2D" parent="Outside" unique_id=458833726]
 
 [node name="Astra" parent="Outside/Rendering" unique_id=445600270 instance=ExtResource("2_4wyf3")]
