@@ -32,13 +32,6 @@ func load_direction(save_version):
 
 var moving:= false
 
-enum Direction {
-	Left,
-	Right,
-	Back,
-	Front
-}
-
 func _process(_delta: float) -> void:
 	if og_direction == true:
 		load_direction(chosen_version)
@@ -96,6 +89,7 @@ func treads_animation(movement_direction):
 		else: treads.play("Right_Move")
 	else:
 		if movement_direction == "front" or movement_direction == "back":
+			treads.play("Front")
 			treads.stop()
 		elif movement_direction == "left":
 			treads.play("Left_Stop")

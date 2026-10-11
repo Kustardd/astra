@@ -414,7 +414,7 @@ position_smoothing_enabled = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=1493842196 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_3dd3b")
-initial_state = NodePath("AstraIdle")
+initial_state = NodePath("AstraMove")
 metadata/_custom_type_script = "uid://dxunlgjrq6v4t"
 
 [node name="AstraMove" type="Node" parent="StateMachine" unique_id=1927947396]
