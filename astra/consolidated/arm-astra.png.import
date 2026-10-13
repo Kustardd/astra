@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjdaucooarks3"
-path="res://.godot/imported/body-astra.png-b68f3e177e0f7e4958ddce2bbbba73a4.ctex"
+uid="uid://bsolxni50mxry"
+path="res://.godot/imported/arm-astra.png-dab235a8251ecd002cdfd84f8401a01a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/consolidated/body-astra.png"
-dest_files=["res://.godot/imported/body-astra.png-b68f3e177e0f7e4958ddce2bbbba73a4.ctex"]
+source_file="res://astra/consolidated/arm-astra.png"
+dest_files=["res://.godot/imported/arm-astra.png-dab235a8251ecd002cdfd84f8401a01a.ctex"]
 
 [params]
 

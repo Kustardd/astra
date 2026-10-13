@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://brnkxq7vgg32l"]
 
-[ext_resource type="Script" path="res://astra/astra.gd" id="1_psguu"]
-[ext_resource type="Texture2D" uid="uid://bn6wcak4ohrpf" path="res://assets/consolidated/head-astra.png" id="3_hte64"]
-[ext_resource type="Texture2D" uid="uid://bsolxni50mxry" path="res://assets/consolidated/arm-astra.png" id="3_slujx"]
-[ext_resource type="Texture2D" uid="uid://cjdaucooarks3" path="res://assets/consolidated/body-astra.png" id="3_v03s5"]
-[ext_resource type="Texture2D" uid="uid://0nogy0irk0mx" path="res://assets/consolidated/treads-astra.png" id="4_8w8xn"]
-[ext_resource type="Script" path="res://astra/arm.gd" id="4_g210e"]
-[ext_resource type="Script" path="res://astra/head.gd" id="4_juhpt"]
+[ext_resource type="Texture2D" uid="uid://bn6wcak4ohrpf" path="res://astra/consolidated/head-astra.png" id="3_hte64"]
+[ext_resource type="Texture2D" uid="uid://bsolxni50mxry" path="res://astra/consolidated/arm-astra.png" id="3_slujx"]
+[ext_resource type="Texture2D" uid="uid://cjdaucooarks3" path="res://astra/consolidated/body-astra.png" id="3_v03s5"]
+[ext_resource type="Texture2D" uid="uid://0nogy0irk0mx" path="res://astra/consolidated/treads-astra.png" id="4_8w8xn"]
 [ext_resource type="Script" uid="uid://dxunlgjrq6v4t" path="res://scripts/states/State Machine.gd" id="5_3dd3b"]
-[ext_resource type="Texture2D" uid="uid://bvxptinon1wau" path="res://assets/consolidated/bumps-astra.png" id="5_lxu5n"]
+[ext_resource type="Texture2D" uid="uid://bvxptinon1wau" path="res://astra/consolidated/bumps-astra.png" id="5_lxu5n"]
 [ext_resource type="Script" uid="uid://bytmvegft2nlx" path="res://scripts/states/AstraMove.gd" id="10_lxu5n"]
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_caaci"]
 
@@ -373,7 +370,6 @@ animations = [{
 
 [node name="Astra" type="CharacterBody2D" unique_id=445600270]
 motion_mode = 1
-script = ExtResource("1_psguu")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
 position = Vector2(2, 82)
@@ -399,15 +395,11 @@ animation = &"Front"
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2arpm")
 animation = &"Back"
-script = ExtResource("4_juhpt")
-wobbleLength = 1
 
 [node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_80elw")
 animation = &"Front"
-script = ExtResource("4_g210e")
-wobbleLength = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1423717219]
 position_smoothing_enabled = true

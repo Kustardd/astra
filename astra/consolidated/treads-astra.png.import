@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0nogy0irk0mx"
-path="res://.godot/imported/treads-astra.png-39bf50b9efd79708f93236732e9753c6.ctex"
+path="res://.godot/imported/treads-astra.png-1cd56fcddb44241b1c4b009b15731e28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/consolidated/treads-astra.png"
-dest_files=["res://.godot/imported/treads-astra.png-39bf50b9efd79708f93236732e9753c6.ctex"]
+source_file="res://astra/consolidated/treads-astra.png"
+dest_files=["res://.godot/imported/treads-astra.png-1cd56fcddb44241b1c4b009b15731e28.ctex"]
 
 [params]
 

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dqowcyprt7is0"]
+
+[ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="1_0tsjr"]
+
+[node name="room1" type="Node2D" unique_id=596815260]
+
+[node name="Astra" parent="." unique_id=445600270 instance=ExtResource("1_0tsjr")]

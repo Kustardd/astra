@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cnpav7dlfw6k8" path="res://scripts/world.gd" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="2_4wyf3"]
+[ext_resource type="Script" uid="uid://bn33nskiwu74r" path="res://scripts/door.gd" id="2_k0juu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
+radius = 32.06244
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nnsk1"]
 
@@ -14,9 +18,25 @@ script = ExtResource("1_rwgxs")
 
 [node name="Outside" type="Node2D" parent="." unique_id=1965241333]
 
+[node name="Door" type="Area2D" parent="Outside" unique_id=530994970]
+script = ExtResource("2_k0juu")
+
+[node name="ColorRect" type="ColorRect" parent="Outside/Door" unique_id=1078958767]
+offset_left = 19.0
+offset_top = -90.0
+offset_right = 59.0
+offset_bottom = -50.0
+color = Color(0.34294006, 0.17538983, 0.094211124, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Door" unique_id=1853533875]
+position = Vector2(43, -71)
+shape = SubResource("CircleShape2D_80elw")
+
 [node name="Temporary Background" type="ColorRect" parent="Outside" unique_id=771463958]
-offset_right = 1151.0
-offset_bottom = 649.0
+offset_left = 50.0
+offset_top = -28.0
+offset_right = 1201.0
+offset_bottom = 621.0
 color = Color(0.41862804, 0.41862804, 0.41862804, 1)
 
 [node name="Walls" type="StaticBody2D" parent="Outside" unique_id=218689414]
@@ -41,3 +61,6 @@ position = Vector2(-480.2, -41)
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=781532972]
 position = Vector2(-480.2, -41)
+
+[connection signal="body_entered" from="Outside/Door" to="Outside/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Door" to="Outside/Door" method="_on_body_exited"]
