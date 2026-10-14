@@ -2,9 +2,9 @@ extends Node2D
 
 const PLAYER_SCENE = preload("res://scenes/astra.tscn")
 const SAVE_PATH = "user://saves.cfg"
-@onready var player = $Outside/Rendering/Astra
+@onready var player = $Rendering/Astra
 @onready var start_pos = $StartPosition
-@onready var astra = $Outside/Rendering/Astra
+@onready var astra = $Rendering/Astra
 var chosen_save = "Save1" #change this when adding different save files, save_version will depend on which save file the user selects by clicking
 
 func save_data(save_version):

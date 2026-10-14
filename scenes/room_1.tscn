@@ -1,7 +1,37 @@
 [gd_scene format=3 uid="uid://dqowcyprt7is0"]
 
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="1_0tsjr"]
+[ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="2_8oql1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
+radius = 170.02647
 
 [node name="room1" type="Node2D" unique_id=596815260]
 
-[node name="Astra" parent="." unique_id=445600270 instance=ExtResource("1_0tsjr")]
+[node name="StartPosition" type="Marker2D" parent="." unique_id=711645133]
+position = Vector2(-241.00002, 46)
+rotation = -0.005225073
+
+[node name="Rendering" type="Node2D" parent="." unique_id=245452722]
+
+[node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("1_0tsjr")]
+position = Vector2(-241.00002, 46)
+rotation = -0.005225073
+
+[node name="Area2D" type="Area2D" parent="." unique_id=997487912]
+script = ExtResource("2_8oql1")
+roomScene = "uid://bl551lyylk0n5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=867450068]
+position = Vector2(79, -57)
+shape = SubResource("CircleShape2D_80elw")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=1960732758]
+offset_left = -71.0
+offset_top = -109.0
+offset_right = 203.0
+offset_bottom = 32.0
+color = Color(0.32354572, 0.21477988, 0.10830025, 1)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
