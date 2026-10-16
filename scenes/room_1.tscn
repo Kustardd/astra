@@ -127,19 +127,21 @@ color = Color(0.6481722, 0.13752025, 0.42220715, 1)
 
 [node name="Rendering2" type="Node2D" parent="." unique_id=1090789742]
 
+[node name="Astra" parent="Rendering2" unique_id=445600270 instance=ExtResource("1_0tsjr")]
+y_sort_enabled = true
+position = Vector2(-105, -204.99997)
+rotation = -0.005225073
+
+[node name="NPC 1" parent="Rendering2" unique_id=1215763232 instance=ExtResource("4_xhekj")]
+y_sort_enabled = true
+position = Vector2(-358, -28)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Rendering2" unique_id=192358214]
 environment = SubResource("Environment_80elw")
 compositor = SubResource("Compositor_8oql1")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Rendering2" unique_id=110094]
 color = Color(0.5704933, 0.53745735, 0.4877851, 1)
-
-[node name="Astra" parent="Rendering2" unique_id=445600270 instance=ExtResource("1_0tsjr")]
-position = Vector2(-109, -259)
-rotation = -0.005225073
-
-[node name="NPC 1" parent="." unique_id=1215763232 instance=ExtResource("4_xhekj")]
-position = Vector2(-167, 298)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2arpm"]
-size = Vector2(206, 181)
+size = Vector2(184, 88.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tr1an"]
 atlas = ExtResource("3_xr7qm")
@@ -54,26 +54,30 @@ fill_to = Vector2(1, 0.5)
 
 [node name="Body" type="Sprite2D" parent="." unique_id=132600005]
 texture_filter = 1
+position = Vector2(0, -160)
 texture = ExtResource("1_rga5l")
 
 [node name="Arm" type="AnimatedSprite2D" parent="." unique_id=1321089872]
 texture_filter = 1
+position = Vector2(0, -160)
 sprite_frames = SubResource("SpriteFrames_2arpm")
 script = ExtResource("3_3w2wa")
 wobbleLength = 2
 wobbleStrength = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621240099]
-position = Vector2(0, 70)
+position = Vector2(0, -43.75)
 shape = SubResource("RectangleShape2D_2arpm")
 
 [node name="Head" type="AnimatedSprite2D" parent="." unique_id=1340182975]
 texture_filter = 1
+position = Vector2(0, -160)
 sprite_frames = SubResource("SpriteFrames_80elw")
 script = ExtResource("3_3w2wa")
 wobbleLength = 2
 wobbleStrength = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=208394868]
+position = Vector2(0, -160)
 color = Color(1.1552361, 0.5006691, 0.5006691, 1)
 texture = SubResource("GradientTexture2D_80elw")
