@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dqowcyprt7is0"]
 
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="1_0tsjr"]
-[ext_resource type="Script" uid="uid://ic7t62ddfgtr" path="res://scenes/room_1.gd" id="1_xhekj"]
+[ext_resource type="Script" uid="uid://ic7t62ddfgtr" path="res://scripts/room_1.gd" id="1_xhekj"]
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="2_8oql1"]
+[ext_resource type="PackedScene" uid="uid://drf2xd1ivxd1" path="res://scenes/npc_1.tscn" id="4_xhekj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
 radius = 170.02647
@@ -136,6 +137,9 @@ color = Color(0.5704933, 0.53745735, 0.4877851, 1)
 [node name="Astra" parent="Rendering2" unique_id=445600270 instance=ExtResource("1_0tsjr")]
 position = Vector2(-109, -259)
 rotation = -0.005225073
+
+[node name="NPC 1" parent="." unique_id=1215763232 instance=ExtResource("4_xhekj")]
+position = Vector2(-167, 298)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

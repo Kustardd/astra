@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
-@export var wobbleLength: int = 8
-@export var wobbleStrength: int = 4
+@export var wobbleLength: int
+@export var wobbleStrength: int
 @onready var origin := position.y
 @onready var direction := 1
 # Called when the node enters the scene tree for the first time.
@@ -13,4 +13,3 @@ func _process(delta: float) -> void:
 	if (abs(origin-position.y)-wobbleLength)>=wobbleLength:
 		direction*= -1
 	position.y +=wobbleStrength*direction*delta
-	#print(position.y, "a")

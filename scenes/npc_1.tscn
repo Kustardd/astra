@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://drf2xd1ivxd1"]
+
+[ext_resource type="Texture2D" uid="uid://cle54gm1an5px" path="res://assets/npc1-body.png" id="1_rga5l"]
+[ext_resource type="Texture2D" uid="uid://dlr1jh63a4g7c" path="res://assets/npc1-arm.png" id="2_3w2wa"]
+[ext_resource type="Script" uid="uid://bx7xoikx56123" path="res://scripts/wobble.gd" id="3_3w2wa"]
+[ext_resource type="Texture2D" uid="uid://syu8lgkx4rqf" path="res://assets/npc1-head.png" id="3_xr7qm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr7qm"]
+atlas = ExtResource("2_3w2wa")
+region = Rect2(0, 0, 256, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2arpm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr7qm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2arpm"]
+size = Vector2(206, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr1an"]
+atlas = ExtResource("3_xr7qm")
+region = Rect2(0, 0, 256, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80elw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr1an")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_2arpm"]
+offsets = PackedFloat32Array(0.25887573, 0.90976334)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80elw"]
+gradient = SubResource("Gradient_2arpm")
+width = 280
+height = 360
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="NPC 1" type="StaticBody2D" unique_id=1215763232]
+
+[node name="Body" type="Sprite2D" parent="." unique_id=132600005]
+texture_filter = 1
+texture = ExtResource("1_rga5l")
+
+[node name="Arm" type="AnimatedSprite2D" parent="." unique_id=1321089872]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2arpm")
+script = ExtResource("3_3w2wa")
+wobbleLength = 2
+wobbleStrength = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621240099]
+position = Vector2(0, 70)
+shape = SubResource("RectangleShape2D_2arpm")
+
+[node name="Head" type="AnimatedSprite2D" parent="." unique_id=1340182975]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_80elw")
+script = ExtResource("3_3w2wa")
+wobbleLength = 2
+wobbleStrength = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=208394868]
+color = Color(1.1552361, 0.5006691, 0.5006691, 1)
+texture = SubResource("GradientTexture2D_80elw")
