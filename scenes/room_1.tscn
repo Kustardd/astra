@@ -10,16 +10,38 @@ radius = 170.02647
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80elw"]
 size = Vector2(637, 1204)
 
+[sub_resource type="Environment" id="Environment_80elw"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 0.28
+glow_strength = 0.7
+glow_bloom = 0.1
+glow_hdr_threshold = 0.22
+fog_mode = 1
+fog_light_color = Color(0.30673343, 0.15031573, 0.2527527, 1)
+fog_density = 1.0
+adjustment_enabled = true
+
+[sub_resource type="Compositor" id="Compositor_8oql1"]
+
 [node name="room1" type="Node2D" unique_id=596815260]
 script = ExtResource("1_xhekj")
-cameraLimLeft = -1200.0
-cameraLimRight = 1200.0
-cameraLimTop = -600.0
-cameraLimBottom = 600.0
+cameraLimLeft = -960.0
+cameraLimRight = 960.0
+cameraLimTop = -540.0
+cameraLimBottom = 540.0
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=711645133]
 position = Vector2(-241.00002, 46)
 rotation = -0.005225073
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=358245475]
+offset_left = -1162.0
+offset_top = -939.0
+offset_right = 1923.0
+offset_bottom = 1060.0
+color = Color(0.31, 0.30504, 0.2852, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=997487912]
 position = Vector2(-48, 48)
@@ -104,8 +126,15 @@ color = Color(0.6481722, 0.13752025, 0.42220715, 1)
 
 [node name="Rendering2" type="Node2D" parent="." unique_id=1090789742]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Rendering2" unique_id=192358214]
+environment = SubResource("Environment_80elw")
+compositor = SubResource("Compositor_8oql1")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Rendering2" unique_id=110094]
+color = Color(0.5704933, 0.53745735, 0.4877851, 1)
+
 [node name="Astra" parent="Rendering2" unique_id=445600270 instance=ExtResource("1_0tsjr")]
-position = Vector2(20, -248)
+position = Vector2(-109, -259)
 rotation = -0.005225073
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -64,6 +64,6 @@ interact={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method.mobile="forward_plus"
+viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0.21568628, 0.25882354, 0.35686275, 1)

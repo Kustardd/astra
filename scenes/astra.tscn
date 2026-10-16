@@ -14,6 +14,18 @@
 [ext_resource type="Script" uid="uid://cajfw1fy20qh0" path="res://scenes/astraCamera_2d.gd" id="10_t3h82"]
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_lgyr6"]
 
+[sub_resource type="Gradient" id="Gradient_t3h82"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3h82"]
+gradient = SubResource("Gradient_t3h82")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
 size = Vector2(156, 92)
 
@@ -377,6 +389,10 @@ animations = [{
 motion_mode = 1
 script = ExtResource("1_1e12r")
 inv = ExtResource("2_t3h82")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1525343907]
+color = Color(0.38883767, 0.54245, 0.54245, 1)
+texture = SubResource("GradientTexture2D_t3h82")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
 position = Vector2(2, 82)
