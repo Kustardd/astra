@@ -13,10 +13,11 @@ extends Camera2D
 func _ready() -> void:
 	#if room.cameraLimits:
 	#limit_enabled = true
-	limit_left = room.cameraLimits.x
-	limit_top = room.cameraLimits.y
-	limit_right = room.cameraLimits.z
-	limit_bottom = room.cameraLimits.w
+	limit_left = room.cameraLimLeft
+	limit_top = room.cameraLimTop
+	limit_right = room.cameraLimRight
+	limit_bottom = room.cameraLimBottom
+	pass
 	#else: limit_enabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var cameraLimLeft: float
+@export var cameraLimRight: float
+@export var cameraLimTop: float
+@export var cameraLimBottom: float
 var cameraLimits: Vector4
 
 
@@ -37,11 +41,10 @@ func load_coordinates(save_version):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cameraLimits = Vector4(-1000000.0,-1000000.0, 1000000, 1000000)
 	load_coordinates(chosen_save)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	cameraLimits = Vector4(-1000000.0,-1000000.0, 1000000, 1000000)
+	#cameraLimits = Vector4(-1000000.0,-1000000.0, 1000000, 1000000)
 	print(cameraLimits)
 	call_deferred("save_data", chosen_save)

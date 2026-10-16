@@ -94,6 +94,10 @@ func treads_animation(movement_direction):
 		elif movement_direction == "left":
 			treads.play("Left_Stop")
 		else: treads.play("Right_Stop")
+	if movement_direction == "front":
+		treads.z_index = 1
+	else:
+		treads.z_index = 0
 	
 func bumps_animation(movement_direction):
 	if moving:
@@ -113,6 +117,10 @@ func bumps_animation(movement_direction):
 			bumps.play("Left")
 		else: bumps.play("Right")
 		bumps.stop()
+	if movement_direction == "front":
+		bumps.z_index = 1
+	else:
+		bumps.z_index = 0
 		
 #endregion
 

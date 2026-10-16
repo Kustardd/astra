@@ -15,6 +15,10 @@ size = Vector2(630, 114)
 [node name="World" type="Node2D" unique_id=137119163]
 y_sort_enabled = true
 script = ExtResource("1_rwgxs")
+cameraLimLeft = -1000000.0
+cameraLimRight = 1000000.0
+cameraLimTop = -100000.0
+cameraLimBottom = 1000000.0
 
 [node name="Door" type="Area2D" parent="." unique_id=530994970]
 script = ExtResource("2_k0juu")

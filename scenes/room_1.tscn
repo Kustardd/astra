@@ -12,10 +12,10 @@ size = Vector2(637, 1204)
 
 [node name="room1" type="Node2D" unique_id=596815260]
 script = ExtResource("1_xhekj")
-cameraLim_xpos = -1200.0
-cameraLim_xneg = 1200.0
-cameraLim_ypos = -600.0
-cameraLim_yneg = 600.0
+cameraLimLeft = -1200.0
+cameraLimRight = 1200.0
+cameraLimTop = -600.0
+cameraLimBottom = 600.0
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=711645133]
 position = Vector2(-241.00002, 46)
