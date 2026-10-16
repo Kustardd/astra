@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dmkb4sg4eq3u4" path="res://scripts/arm.gd" id="8_t3h82"]
 [ext_resource type="Script" uid="uid://dxunlgjrq6v4t" path="res://scripts/states/State Machine.gd" id="9_rl4ia"]
 [ext_resource type="Script" uid="uid://bytmvegft2nlx" path="res://scripts/states/AstraMove.gd" id="10_mcfef"]
+[ext_resource type="Script" uid="uid://cajfw1fy20qh0" path="res://scenes/astraCamera_2d.gd" id="10_t3h82"]
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_lgyr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
@@ -413,6 +414,7 @@ wobbleLength = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1423717219]
 position_smoothing_enabled = true
+script = ExtResource("10_t3h82")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1493842196 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("9_rl4ia")
