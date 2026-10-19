@@ -143,5 +143,6 @@ compositor = SubResource("Compositor_8oql1")
 [node name="CanvasModulate" type="CanvasModulate" parent="Rendering2" unique_id=110094]
 color = Color(0.5704933, 0.53745735, 0.4877851, 1)
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

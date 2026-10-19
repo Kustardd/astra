@@ -15,15 +15,20 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Astra"
-run/main_scene="uid://bl551lyylk0n5"
+run/main_scene="uid://ci0m8lxhucc1w"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Saves="*uid://b0f2wsey16qpu"
+
 [display]
 
-window/size/viewport_width=1000
-window/size/viewport_height=800
-window/size/mode=3
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="viewport"
 
 [input]
 
