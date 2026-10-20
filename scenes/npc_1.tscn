@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drf2xd1ivxd1"]
 
 [ext_resource type="Texture2D" uid="uid://cle54gm1an5px" path="res://assets/npc1-body.png" id="1_rga5l"]
+[ext_resource type="Script" uid="uid://bwb35sps8huk6" path="res://scripts/staticInteractable.gd" id="1_xr7qm"]
 [ext_resource type="Texture2D" uid="uid://dlr1jh63a4g7c" path="res://assets/npc1-arm.png" id="2_3w2wa"]
 [ext_resource type="Script" uid="uid://bx7xoikx56123" path="res://scripts/wobble.gd" id="3_3w2wa"]
 [ext_resource type="Texture2D" uid="uid://syu8lgkx4rqf" path="res://assets/npc1-head.png" id="3_xr7qm"]
@@ -39,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_2arpm"]
-offsets = PackedFloat32Array(0.25887573, 0.90976334)
+offsets = PackedFloat32Array(0, 0.7295082)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_80elw"]
@@ -50,7 +51,12 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2arpm"]
+radius = 226.97357
+
 [node name="NPC 1" type="StaticBody2D" unique_id=1215763232]
+script = ExtResource("1_xr7qm")
+interactionDialogue = "I'm a robot"
 
 [node name="Body" type="Sprite2D" parent="." unique_id=132600005]
 texture_filter = 1
@@ -65,7 +71,7 @@ script = ExtResource("3_3w2wa")
 wobbleLength = 2
 wobbleStrength = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621240099]
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1621240099]
 position = Vector2(0, -43.75)
 shape = SubResource("RectangleShape2D_2arpm")
 
@@ -79,5 +85,11 @@ wobbleStrength = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=208394868]
 position = Vector2(0, -160)
-color = Color(1.1552361, 0.5006691, 0.5006691, 1)
+color = Color(0.32574722, 0, 0.043694373, 1)
 texture = SubResource("GradientTexture2D_80elw")
+
+[node name="Interact" type="Area2D" parent="." unique_id=1273555607]
+position = Vector2(-1, -153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact" unique_id=1809801294]
+shape = SubResource("CircleShape2D_2arpm")

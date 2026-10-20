@@ -14,5 +14,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#cameraLimits = Vector4(-1000000.0,-1000000.0, 1000000, 1000000)
-	print(cameraLimits)
 	pass

@@ -22,8 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(room.get_path())
-	print(limit_left)
+	pass
 	#limit_left = lim_xneg
 	#limit_bottom = lim_ypos
 	#limit_right = lim_xpos

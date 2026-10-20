@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://ic7t62ddfgtr" path="res://scripts/room_1.gd" id="1_xhekj"]
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="2_8oql1"]
 [ext_resource type="PackedScene" uid="uid://drf2xd1ivxd1" path="res://scenes/npc_1.tscn" id="4_xhekj"]
+[ext_resource type="Texture2D" uid="uid://db1q8bo031y30" path="res://assets/inventory_sprites/dairy-inventory.png" id="5_0akh5"]
+[ext_resource type="Script" uid="uid://bx7xoikx56123" path="res://scripts/wobble.gd" id="6_3wwl0"]
+[ext_resource type="Script" uid="uid://bwb35sps8huk6" path="res://scripts/staticInteractable.gd" id="6_d0u7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
 radius = 170.02647
@@ -25,6 +28,20 @@ fog_density = 1.0
 adjustment_enabled = true
 
 [sub_resource type="Compositor" id="Compositor_8oql1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2arpm"]
+radius = 105.00476
+
+[sub_resource type="Gradient" id="Gradient_3wwl0"]
+offsets = PackedFloat32Array(0.08469945, 0.6202186)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80elw"]
+gradient = SubResource("Gradient_3wwl0")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="room1" type="Node2D" unique_id=596815260]
 script = ExtResource("1_xhekj")
@@ -125,23 +142,44 @@ offset_right = 1488.0
 offset_bottom = 3732.0
 color = Color(0.6481722, 0.13752025, 0.42220715, 1)
 
-[node name="Rendering2" type="Node2D" parent="." unique_id=1090789742]
+[node name="Rendering" type="Node2D" parent="." unique_id=1090789742]
 
-[node name="Astra" parent="Rendering2" unique_id=445600270 instance=ExtResource("1_0tsjr")]
+[node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("1_0tsjr")]
 y_sort_enabled = true
 position = Vector2(-105, -204.99997)
 rotation = -0.005225073
 
-[node name="NPC 1" parent="Rendering2" unique_id=1215763232 instance=ExtResource("4_xhekj")]
+[node name="NPC 1" parent="Rendering" unique_id=1215763232 instance=ExtResource("4_xhekj")]
 y_sort_enabled = true
 position = Vector2(-358, -28)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Rendering2" unique_id=192358214]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Rendering" unique_id=192358214]
 environment = SubResource("Environment_80elw")
 compositor = SubResource("Compositor_8oql1")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="Rendering2" unique_id=110094]
+[node name="CanvasModulate" type="CanvasModulate" parent="Rendering" unique_id=110094]
 color = Color(0.5704933, 0.53745735, 0.4877851, 1)
+
+[node name="Node2D" type="Node2D" parent="Rendering" unique_id=467712283]
+position = Vector2(-315, 231)
+script = ExtResource("6_d0u7m")
+interactionDialogue = "Diary"
+
+[node name="Interact" type="Area2D" parent="Rendering/Node2D" unique_id=384632795]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rendering/Node2D/Interact" unique_id=1503862096]
+shape = SubResource("CircleShape2D_2arpm")
+
+[node name="TestObject" type="Sprite2D" parent="Rendering/Node2D" unique_id=1514531752]
+texture_filter = 1
+texture = ExtResource("5_0akh5")
+script = ExtResource("6_3wwl0")
+wobbleLength = 2
+wobbleStrength = 8
+
+[node name="PointLight2D" type="PointLight2D" parent="Rendering/Node2D/TestObject" unique_id=466769606]
+color = Color(0.26936325, 0.16145644, 0.053922802, 1)
+texture = SubResource("GradientTexture2D_80elw")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -392,7 +392,7 @@ inv = ExtResource("2_t3h82")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1525343907]
 position = Vector2(0, -128)
-color = Color(0.38883767, 0.54245, 0.54245, 1)
+color = Color(0.18880683, 0.2852534, 0.2853747, 1)
 texture = SubResource("GradientTexture2D_t3h82")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
