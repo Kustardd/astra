@@ -14,27 +14,13 @@ extends CharacterBody2D
 @export var friction := 2000.0
 @export var baseSpeedMultiplier := 1.5
 
-const SAVE_PATH = "user://saves.cfg"
-@onready var chosen_version = "Save1"
 @onready var original:= position
-@onready var og_direction = true
 @onready var direction = "front"
 var moving:= false
 
-func load_direction(save_version):
-	var save_file = ConfigFile.new()
-	var error = save_file.load(SAVE_PATH)
-	if error != OK:
-		print("No saved direction, starting from original direction.")
-	else:
-		print("Loaded to saved direction.")
-		direction = save_file.get_value("Player_Direction", save_version, "front")
+
 
 func _process(_delta: float) -> void:
-	if og_direction == true:
-		load_direction(chosen_version)
-		og_direction = false
-	
 	play_animation(direction)
 
 #region animations
