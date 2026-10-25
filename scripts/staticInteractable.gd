@@ -3,11 +3,12 @@ extends Node
 @export var dialogueTrue: bool
 var interactable: bool
 @export var interactionDialogue: String
+@onready var interactArea = get_node("Interact")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#interactArea.monitorable = false
-	var interactArea = get_node("Interact")
+
 	interactArea.body_exited.connect(_on_body_exited)
 	interactArea.body_entered.connect(_on_body_entered)
 

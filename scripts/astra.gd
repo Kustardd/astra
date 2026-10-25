@@ -53,7 +53,7 @@ func arm_animation(movement_direction):
 func body_animation(movement_direction):
 	if movement_direction == "front":
 		body.play("Front")
-		body.z_index = 1
+		body.z_index = 0
 	elif movement_direction == "back":
 		body.play("Back")
 		body.z_index = 0
@@ -81,7 +81,7 @@ func treads_animation(movement_direction):
 			treads.play("Left_Stop")
 		else: treads.play("Right_Stop")
 	if movement_direction == "front":
-		treads.z_index = 1
+		treads.z_index = 0
 	else:
 		treads.z_index = 0
 	
@@ -104,7 +104,7 @@ func bumps_animation(movement_direction):
 		else: bumps.play("Right")
 		bumps.stop()
 	if movement_direction == "front":
-		bumps.z_index = 1
+		bumps.z_index = 0
 	else:
 		bumps.z_index = 0
 		

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt7fmj75mippk"]
 
 [ext_resource type="Script" uid="uid://dtnvppr8xdn6s" path="res://scripts/astra.gd" id="1_1e12r"]
-[ext_resource type="Texture2D" uid="uid://cjdaucooarks3" path="res://assets/consolidated/body-astra.png" id="2_0nvx1"]
+[ext_resource type="Texture2D" uid="uid://pd7sufnjkcdr" path="res://assets/consolidated/body-astra.png" id="2_0nvx1"]
 [ext_resource type="Resource" uid="uid://dts2j14ca63qx" path="res://resources/inventory_resources/playerinv.tres" id="2_t3h82"]
 [ext_resource type="Texture2D" uid="uid://0nogy0irk0mx" path="res://assets/consolidated/treads-astra.png" id="3_t3h82"]
 [ext_resource type="Texture2D" uid="uid://bvxptinon1wau" path="res://assets/consolidated/bumps-astra.png" id="4_eqqfr"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://kd42foh4kj2w" path="res://scenes/Inv_UI.tscn" id="13_t3h82"]
 
 [sub_resource type="Gradient" id="Gradient_t3h82"]
+offsets = PackedFloat32Array(0.00949367, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t3h82"]
@@ -29,27 +30,27 @@ fill_to = Vector2(1, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
 size = Vector2(184, 92)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0skc"]
-atlas = ExtResource("2_0nvx1")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_caaci"]
-atlas = ExtResource("2_0nvx1")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mgfwx"]
-atlas = ExtResource("2_0nvx1")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqiex"]
-atlas = ExtResource("2_0nvx1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g210e"]
+atlas = ExtResource("7_a6ohe")
 region = Rect2(256, 256, 256, 256)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wgpu7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hte64"]
+atlas = ExtResource("7_a6ohe")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysmyq"]
+atlas = ExtResource("7_a6ohe")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhpt"]
+atlas = ExtResource("7_a6ohe")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80elw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j0skc")
+"texture": SubResource("AtlasTexture_g210e")
 }],
 "loop": 1,
 "name": &"Back",
@@ -57,7 +58,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_caaci")
+"texture": SubResource("AtlasTexture_hte64")
 }],
 "loop": 1,
 "name": &"Front",
@@ -65,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mgfwx")
+"texture": SubResource("AtlasTexture_ysmyq")
 }],
 "loop": 1,
 "name": &"Left",
@@ -73,7 +74,58 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mqiex")
+"texture": SubResource("AtlasTexture_juhpt")
+}],
+"loop": 1,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3h82"]
+atlas = ExtResource("2_0nvx1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqqfr"]
+atlas = ExtResource("2_0nvx1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5foh2"]
+atlas = ExtResource("2_0nvx1")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwxwp"]
+atlas = ExtResource("2_0nvx1")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgpu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3h82")
+}],
+"loop": 1,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqqfr")
+}],
+"loop": 1,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5foh2")
+}],
+"loop": 1,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwxwp")
 }],
 "loop": 1,
 "name": &"Right",
@@ -334,57 +386,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g210e"]
-atlas = ExtResource("7_a6ohe")
-region = Rect2(256, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hte64"]
-atlas = ExtResource("7_a6ohe")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ysmyq"]
-atlas = ExtResource("7_a6ohe")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_juhpt"]
-atlas = ExtResource("7_a6ohe")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_80elw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g210e")
-}],
-"loop": 1,
-"name": &"Back",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hte64")
-}],
-"loop": 1,
-"name": &"Front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ysmyq")
-}],
-"loop": 1,
-"name": &"Left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_juhpt")
-}],
-"loop": 1,
-"name": &"Right",
-"speed": 5.0
-}]
-
 [node name="Astra" type="CharacterBody2D" unique_id=445600270]
 motion_mode = 1
 script = ExtResource("1_1e12r")
@@ -392,19 +393,28 @@ inv = ExtResource("2_t3h82")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1525343907]
 position = Vector2(0, -128)
-color = Color(0.18880683, 0.2852534, 0.2853747, 1)
+color = Color(0.13430288, 0.21175587, 0.21176678, 1)
 texture = SubResource("GradientTexture2D_t3h82")
 
 [node name="Astra Hurtbox" type="CollisionShape2D" parent="." unique_id=334826191]
 position = Vector2(0, -46)
 shape = SubResource("RectangleShape2D_0ugm7")
 
+[node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
+texture_filter = 1
+position = Vector2(0, -128)
+sprite_frames = SubResource("SpriteFrames_80elw")
+animation = &"Front"
+script = ExtResource("8_t3h82")
+wobbleLength = 2
+wobbleStrength = 2
+
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1345246276]
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_wgpu7")
-animation = &"Front"
+animation = &"Right"
 
 [node name="Treads" type="AnimatedSprite2D" parent="." unique_id=1480341040]
 texture_filter = 1
@@ -423,15 +433,6 @@ texture_filter = 1
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_2arpm")
 animation = &"Back"
-script = ExtResource("8_t3h82")
-wobbleLength = 2
-wobbleStrength = 2
-
-[node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
-texture_filter = 1
-position = Vector2(0, -128)
-sprite_frames = SubResource("SpriteFrames_80elw")
-animation = &"Front"
 script = ExtResource("8_t3h82")
 wobbleLength = 2
 wobbleStrength = 2

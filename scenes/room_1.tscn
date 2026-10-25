@@ -143,9 +143,9 @@ offset_bottom = 3732.0
 color = Color(0.6481722, 0.13752025, 0.42220715, 1)
 
 [node name="Rendering" type="Node2D" parent="." unique_id=1090789742]
+y_sort_enabled = true
 
 [node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("1_0tsjr")]
-y_sort_enabled = true
 position = Vector2(-105, -204.99997)
 rotation = -0.005225073
 
@@ -160,24 +160,27 @@ compositor = SubResource("Compositor_8oql1")
 [node name="CanvasModulate" type="CanvasModulate" parent="Rendering" unique_id=110094]
 color = Color(0.5704933, 0.53745735, 0.4877851, 1)
 
-[node name="Node2D" type="Node2D" parent="Rendering" unique_id=467712283]
+[node name="Book" type="Node2D" parent="Rendering" unique_id=467712283]
 position = Vector2(-315, 231)
 script = ExtResource("6_d0u7m")
 interactionDialogue = "Diary"
 
-[node name="Interact" type="Area2D" parent="Rendering/Node2D" unique_id=384632795]
+[node name="Interact" type="Area2D" parent="Rendering/Book" unique_id=384632795]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rendering/Node2D/Interact" unique_id=1503862096]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rendering/Book/Interact" unique_id=1503862096]
 shape = SubResource("CircleShape2D_2arpm")
 
-[node name="TestObject" type="Sprite2D" parent="Rendering/Node2D" unique_id=1514531752]
+[node name="TestObject" type="Sprite2D" parent="Rendering/Book" unique_id=1514531752]
 texture_filter = 1
+position = Vector2(8, -128)
 texture = ExtResource("5_0akh5")
+offset = Vector2(0, 128)
 script = ExtResource("6_3wwl0")
 wobbleLength = 2
 wobbleStrength = 8
 
-[node name="PointLight2D" type="PointLight2D" parent="Rendering/Node2D/TestObject" unique_id=466769606]
+[node name="PointLight2D" type="PointLight2D" parent="Rendering/Book/TestObject" unique_id=466769606]
+position = Vector2(-5, 129)
 color = Color(0.26936325, 0.16145644, 0.053922802, 1)
 texture = SubResource("GradientTexture2D_80elw")
 
