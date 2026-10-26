@@ -15,9 +15,16 @@ func _ready() -> void:
 
 func _on_body_entered(body: PhysicsBody2D):
 	interactable = true
+	#var astra = $Rendering/Astra
+	#astra.eVisibility = true
+	#print(astra.eVisibility)
+	#print("hello")
+
 
 func _on_body_exited(body: PhysicsBody2D):
 	interactable = false
+	#var astra = $Rendering/Astra
+	#astra.eVisibility = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

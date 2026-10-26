@@ -5,12 +5,15 @@
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="2_k0juu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
-radius = 32.06244
+radius = 23.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nnsk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
 size = Vector2(630, 114)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2arpm"]
+radius = 32.01562
 
 [node name="World" type="Node2D" unique_id=137119163]
 y_sort_enabled = true
@@ -20,19 +23,19 @@ cameraLimRight = 1000000.0
 cameraLimTop = -100000.0
 cameraLimBottom = 1000000.0
 
-[node name="Door" type="Area2D" parent="." unique_id=530994970]
+[node name="Room1" type="Area2D" parent="." unique_id=530994970]
 script = ExtResource("2_k0juu")
 roomScene = "uid://dqowcyprt7is0"
 
-[node name="ColorRect" type="ColorRect" parent="Door" unique_id=1078958767]
-offset_left = 19.0
-offset_top = -90.0
-offset_right = 59.0
-offset_bottom = -50.0
-color = Color(0.34294006, 0.17538983, 0.094211124, 1)
+[node name="ColorRect" type="ColorRect" parent="Room1" unique_id=1078958767]
+offset_left = 127.0
+offset_top = -158.0
+offset_right = 167.0
+offset_bottom = -118.0
+color = Color(0.33, 0.23595002, 0.18150002, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1853533875]
-position = Vector2(43, -71)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1" unique_id=1853533875]
+position = Vector2(147, -136)
 shape = SubResource("CircleShape2D_80elw")
 
 [node name="Temporary Background" type="ColorRect" parent="." unique_id=771463958]
@@ -65,5 +68,22 @@ position = Vector2(-480.2, -41)
 unique_name_in_owner = true
 position = Vector2(-480.2, -41)
 
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[node name="StartRoom" type="Area2D" parent="." unique_id=1866128452]
+script = ExtResource("2_k0juu")
+roomScene = "uid://bmxlvyigekgip"
+
+[node name="ColorRect" type="ColorRect" parent="StartRoom" unique_id=81648060]
+offset_left = -289.0
+offset_top = -195.0
+offset_right = -249.0
+offset_bottom = -155.0
+color = Color(1, 0.110000014, 0.110000014, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartRoom" unique_id=1760760215]
+position = Vector2(-269, -172)
+shape = SubResource("CircleShape2D_2arpm")
+
+[connection signal="body_entered" from="Room1" to="Room1" method="_on_body_entered"]
+[connection signal="body_exited" from="Room1" to="Room1" method="_on_body_exited"]
+[connection signal="body_entered" from="StartRoom" to="StartRoom" method="_on_body_entered"]
+[connection signal="body_exited" from="StartRoom" to="StartRoom" method="_on_body_exited"]

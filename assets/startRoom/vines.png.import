@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g7sn1eluywcd"
-path="res://.godot/imported/walls.png-cd714747ddb4b216ceb1f52f51b5c713.ctex"
+uid="uid://b7tfmc7r2tmdi"
+path="res://.godot/imported/vines.png-582ffbb7e7468782c1b0fdba650f715e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/startRoom/walls.png"
-dest_files=["res://.godot/imported/walls.png-cd714747ddb4b216ceb1f52f51b5c713.ctex"]
+source_file="res://assets/startRoom/vines.png"
+dest_files=["res://.godot/imported/vines.png-582ffbb7e7468782c1b0fdba650f715e.ctex"]
 
 [params]
 

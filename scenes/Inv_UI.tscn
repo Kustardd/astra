@@ -10,6 +10,7 @@ offset_bottom = 376.0
 script = ExtResource("1_o4mch")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1451698442]
+visible = false
 layout_mode = 0
 offset_right = 522.0
 offset_bottom = 375.0

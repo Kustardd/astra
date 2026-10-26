@@ -18,7 +18,8 @@ extends CharacterBody2D
 @onready var direction = "front"
 var moving:= false
 
-
+##@onready var e := $"E for Interact"
+#var eVisibility := false
 
 func _process(_delta: float) -> void:
 	play_animation(direction)

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bwb35sps8huk6" path="res://scripts/staticInteractable.gd" id="6_d0u7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
-radius = 170.02647
+radius = 116.00431
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80elw"]
 size = Vector2(637, 1204)
@@ -30,7 +30,7 @@ adjustment_enabled = true
 [sub_resource type="Compositor" id="Compositor_8oql1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2arpm"]
-radius = 105.00476
+radius = 81.0
 
 [sub_resource type="Gradient" id="Gradient_3wwl0"]
 offsets = PackedFloat32Array(0.08469945, 0.6202186)
@@ -151,7 +151,7 @@ rotation = -0.005225073
 
 [node name="NPC 1" parent="Rendering" unique_id=1215763232 instance=ExtResource("4_xhekj")]
 y_sort_enabled = true
-position = Vector2(-358, -28)
+position = Vector2(-447, -40)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Rendering" unique_id=192358214]
 environment = SubResource("Environment_80elw")
@@ -170,7 +170,7 @@ interactionDialogue = "Diary"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rendering/Book/Interact" unique_id=1503862096]
 shape = SubResource("CircleShape2D_2arpm")
 
-[node name="TestObject" type="Sprite2D" parent="Rendering/Book" unique_id=1514531752]
+[node name="TestObject" type="Sprite2D" parent="Rendering/Book/Interact" unique_id=1514531752]
 texture_filter = 1
 position = Vector2(8, -128)
 texture = ExtResource("5_0akh5")
@@ -179,7 +179,7 @@ script = ExtResource("6_3wwl0")
 wobbleLength = 2
 wobbleStrength = 8
 
-[node name="PointLight2D" type="PointLight2D" parent="Rendering/Book/TestObject" unique_id=466769606]
+[node name="PointLight2D" type="PointLight2D" parent="Rendering/Book/Interact/TestObject" unique_id=466769606]
 position = Vector2(-5, 129)
 color = Color(0.26936325, 0.16145644, 0.053922802, 1)
 texture = SubResource("GradientTexture2D_80elw")

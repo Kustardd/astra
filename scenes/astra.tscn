@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://cajfw1fy20qh0" path="res://scripts/astraCamera_2d.gd" id="10_t3h82"]
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_lgyr6"]
 [ext_resource type="PackedScene" uid="uid://kd42foh4kj2w" path="res://scenes/Inv_UI.tscn" id="13_t3h82"]
+[ext_resource type="Texture2D" uid="uid://cek4g8cgl10es" path="res://assets/e for interact.png" id="14_eqqfr"]
+[ext_resource type="Script" uid="uid://ci078sb5t3g8s" path="res://scenes/e_for_interact.gd" id="15_5foh2"]
 
 [sub_resource type="Gradient" id="Gradient_t3h82"]
 offsets = PackedFloat32Array(0.00949367, 1)
@@ -386,10 +388,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
+radius = 107.16809
+
 [node name="Astra" type="CharacterBody2D" unique_id=445600270]
 motion_mode = 1
 script = ExtResource("1_1e12r")
 inv = ExtResource("2_t3h82")
+baseSpeed = 720.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1525343907]
 position = Vector2(0, -128)
@@ -402,7 +408,7 @@ shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
 texture_filter = 1
-position = Vector2(0, -128)
+position = Vector2(-1, -128)
 sprite_frames = SubResource("SpriteFrames_80elw")
 animation = &"Front"
 script = ExtResource("8_t3h82")
@@ -456,3 +462,27 @@ script = ExtResource("11_lgyr6")
 metadata/_custom_type_script = "uid://ci4il4vb3l825"
 
 [node name="Inv_UI" parent="." unique_id=1120595599 instance=ExtResource("13_t3h82")]
+offset_left = 1377.0
+offset_top = -571.0
+offset_right = 1900.0
+offset_bottom = -195.0
+
+[node name="E" type="Node2D" parent="." unique_id=1592679584]
+position = Vector2(0, -312)
+script = ExtResource("8_t3h82")
+wobbleLength = 8
+wobbleStrength = 32
+
+[node name="E for Interact" type="Sprite2D" parent="E" unique_id=1868377242]
+texture_filter = 1
+texture = ExtResource("14_eqqfr")
+script = ExtResource("15_5foh2")
+
+[node name="Item Detection" type="Area2D" parent="." unique_id=1968259540]
+position = Vector2(0, -116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item Detection" unique_id=1266814109]
+shape = SubResource("CircleShape2D_80elw")
+
+[connection signal="area_shape_entered" from="Item Detection" to="E/E for Interact" method="_on_item_detection_area_shape_entered"]
+[connection signal="area_shape_exited" from="Item Detection" to="E/E for Interact" method="_on_item_detection_area_shape_exited"]
