@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmxlvyigekgip"]
 
-[ext_resource type="Script" uid="uid://b651lc044qbcq" path="res://scripts/start_room.gd" id="1_i7km7"]
+[ext_resource type="Script" uid="uid://bntkvmwj7aurj" path="res://scripts/baseRoom.gd" id="1_vxkc8"]
 [ext_resource type="Texture2D" uid="uid://xhp7ucqwxdie" path="res://assets/startRoom/glow.png" id="2_dd4jv"]
 [ext_resource type="Texture2D" uid="uid://c4f38hhho2fou" path="res://assets/startRoom/floor.png" id="3_fraim"]
 [ext_resource type="Texture2D" uid="uid://jjbevppk416d" path="res://assets/startRoom/wall.png" id="4_70ynr"]
@@ -11,14 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://bqdeg3gqupgm5" path="res://assets/startRoom/border.png" id="7_xhbgv"]
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="8_0fied"]
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="11_70ynr"]
+[ext_resource type="PackedScene" uid="uid://b827n8duk5ktp" path="res://scenes/fade.tscn" id="12_vxkc8"]
 
 [sub_resource type="Environment" id="Environment_80elw"]
 background_mode = 3
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 1.46
-glow_strength = 0.84
-glow_bloom = 0.31
+glow_intensity = 2.79
+glow_strength = 0.86
+glow_bloom = 0.4
 fog_light_color = Color(0.31718937, 0.35064307, 0.39526492, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kg0m"]
@@ -54,11 +55,20 @@ size = Vector2(2000, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdqc5"]
 size = Vector2(2000, 200)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
-radius = 156.54073
+[sub_resource type="CircleShape2D" id="CircleShape2D_1icej"]
+radius = 140.0
+
+[sub_resource type="Gradient" id="Gradient_mmegb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wgpu7"]
+gradient = SubResource("Gradient_mmegb")
+width = 100
+height = 300
+fill_from = Vector2(0, 0.503663)
+fill_to = Vector2(1, 0.5915751)
 
 [node name="StartRoom" type="Node2D" unique_id=2140845314]
-script = ExtResource("1_i7km7")
+script = ExtResource("1_vxkc8")
 cameraLimLeft = -960.0
 cameraLimRight = 960.0
 cameraLimTop = -540.0
@@ -107,7 +117,7 @@ texture_filter = 1
 texture = ExtResource("6_mmegb")
 
 [node name="Astra" parent="Rendering" unique_id=445600270 instance=ExtResource("8_0fied")]
-position = Vector2(-153, -11)
+position = Vector2(843, 275)
 
 [node name="Bush" type="Sprite2D" parent="Rendering" unique_id=985095659]
 y_sort_enabled = true
@@ -133,13 +143,13 @@ texture = SubResource("GradientTexture2D_80elw")
 [node name="WallLeft" type="StaticBody2D" parent="Walls" unique_id=318917274]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft" unique_id=198048588]
-position = Vector2(-1048, 0)
+position = Vector2(-1052, 0)
 shape = SubResource("RectangleShape2D_80elw")
 
 [node name="WallRight" type="StaticBody2D" parent="Walls" unique_id=1448360498]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight" unique_id=1529924366]
-position = Vector2(1048, 0)
+position = Vector2(1052, 0)
 shape = SubResource("RectangleShape2D_2arpm")
 
 [node name="WallTop" type="StaticBody2D" parent="Walls" unique_id=110138473]
@@ -151,23 +161,24 @@ shape = SubResource("RectangleShape2D_wgpu7")
 [node name="WallBottom" type="StaticBody2D" parent="Walls" unique_id=77353973]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom" unique_id=1269230072]
-position = Vector2(0, 640)
+position = Vector2(0, 632)
 shape = SubResource("RectangleShape2D_hdqc5")
 
-[node name="Door" type="Area2D" parent="." unique_id=1491817503]
+[node name="Door" type="Area2D" parent="." unique_id=1822081685]
 script = ExtResource("11_70ynr")
 roomScene = "uid://bl551lyylk0n5"
 
-[node name="ColorRect" type="ColorRect" parent="Door" unique_id=377079638]
-offset_left = 917.0
-offset_top = -53.0
-offset_right = 1007.0
-offset_bottom = 207.0
-color = Color(0.33511627, 0.33511627, 0.33511627, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=564716049]
+position = Vector2(963, 140)
+shape = SubResource("CircleShape2D_1icej")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=2075792563]
-position = Vector2(1018, 78)
-shape = SubResource("CircleShape2D_80elw")
+[node name="PointLight2D" type="PointLight2D" parent="Door" unique_id=220811482]
+position = Vector2(930, 140)
+color = Color(0.14649808, 0.16674972, 0.2719684, 1)
+texture = SubResource("GradientTexture2D_wgpu7")
+
+[node name="Fade" parent="." unique_id=562451645 instance=ExtResource("12_vxkc8")]
+visible = false
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

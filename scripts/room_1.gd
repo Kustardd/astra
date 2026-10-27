@@ -1,17 +1,16 @@
 extends Node2D
 
-@export var cameraLimLeft: float
-@export var cameraLimRight: float
-@export var cameraLimTop: float
-@export var cameraLimBottom: float
+@export var cameraLimLeft: float = -100000000
+@export var cameraLimRight: float = 100000000
+@export var cameraLimTop: float = -1000000
+@export var cameraLimBottom: float = 1000000
 var cameraLimits: Vector4
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	#cameraLimits = Vector4(cameraLim_xneg, cameraLim_yneg, cameraLim_xpos, cameraLim_ypos)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func exitScene(room):
+	get_tree().change_scene_to_file.call_deferred(room)

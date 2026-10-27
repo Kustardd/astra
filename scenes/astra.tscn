@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://cajfw1fy20qh0" path="res://scripts/astraCamera_2d.gd" id="10_t3h82"]
 [ext_resource type="Script" uid="uid://ci4il4vb3l825" path="res://scripts/states/AstraIdle.gd" id="11_lgyr6"]
 [ext_resource type="PackedScene" uid="uid://kd42foh4kj2w" path="res://scenes/Inv_UI.tscn" id="13_t3h82"]
-[ext_resource type="Texture2D" uid="uid://cek4g8cgl10es" path="res://assets/e for interact.png" id="14_eqqfr"]
-[ext_resource type="Script" uid="uid://ci078sb5t3g8s" path="res://scenes/e_for_interact.gd" id="15_5foh2"]
+[ext_resource type="Texture2D" uid="uid://c0kphue33qnja" path="res://assets/e for interact.png" id="14_eqqfr"]
+[ext_resource type="Script" uid="uid://ci078sb5t3g8s" path="res://scripts/e_for_interact.gd" id="15_5foh2"]
 
 [sub_resource type="Gradient" id="Gradient_t3h82"]
 offsets = PackedFloat32Array(0.00949367, 1)
@@ -407,6 +407,7 @@ position = Vector2(0, -46)
 shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="Arm" type="AnimatedSprite2D" parent="." unique_id=809656082]
+visible = false
 texture_filter = 1
 position = Vector2(-1, -128)
 sprite_frames = SubResource("SpriteFrames_80elw")
@@ -470,11 +471,12 @@ offset_bottom = -195.0
 [node name="E" type="Node2D" parent="." unique_id=1592679584]
 position = Vector2(0, -312)
 script = ExtResource("8_t3h82")
-wobbleLength = 8
+wobbleLength = 4
 wobbleStrength = 32
 
 [node name="E for Interact" type="Sprite2D" parent="E" unique_id=1868377242]
 texture_filter = 1
+position = Vector2(0, 12)
 texture = ExtResource("14_eqqfr")
 script = ExtResource("15_5foh2")
 

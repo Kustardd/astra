@@ -89,9 +89,14 @@ func _process(delta: float) -> void:
 			pass
 		
 		#scene = get_tree().current_scene.get_path()
+		
+		set_process(false)
+		await get_tree().create_timer(delta).timeout
+		set_process(true)
 		astra = get_tree().get_current_scene().find_child("Astra", true, false)
 		scene_filepath = get_tree().current_scene.scene_file_path
 		start_pos = get_tree().get_current_scene().find_child("StartPosition", true, false)
+		
 		#print("This is the filepath for the scene", scene_filepath)
 		#print("This is the scene path", scene)
 		#print("This is the marker 2d node", start_pos)
@@ -108,6 +113,10 @@ func _process(delta: float) -> void:
 			save_data(chosen_save, astra, scene_filepath)
 			#print("This is the astra node being printed again but instead, it should happen when in the room1 scene", astra)
 			#print("hi")
+		elif scene_filepath == "res://scenes/start_room.tscn":
+			#print("This code should be running part 3 by zilin")
+			astra = get_tree().get_current_scene().find_child("Astra", true, false)
+			save_data(chosen_save, astra, scene_filepath)
 	else:
 		#print("game_start doesn't equal true apparently")
 		pass

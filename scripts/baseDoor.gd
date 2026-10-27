@@ -22,21 +22,22 @@ extends Area2D
 
 var entered := false
 
+@onready var bigParentRoom = get_parent()
+
 func _ready() -> void:
-	print("Changing scene to ", roomScene)
-	pass
+	print("Changing scene to ", roomScene.get_basename())
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if entered == true:
 		if Input.is_action_just_pressed("interact"):
-			get_tree().change_scene_to_file.call_deferred(roomScene)
+			bigParentRoom.exitScene(roomScene)
 			print("Switched rooms")
 			entered = false
 
-func _on_body_entered(body: PhysicsBody2D) -> void:
+func _on_body_entered(_body: CharacterBody2D) -> void:
 	entered = true
 
 
-func _on_body_exited(body: PhysicsBody2D) -> void:
+func _on_body_exited(_body: CharacterBody2D) -> void:
 	entered = false

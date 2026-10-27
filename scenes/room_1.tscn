@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dqowcyprt7is0"]
 
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="1_0tsjr"]
-[ext_resource type="Script" uid="uid://ic7t62ddfgtr" path="res://scripts/room_1.gd" id="1_xhekj"]
+[ext_resource type="Script" uid="uid://bntkvmwj7aurj" path="res://scripts/baseRoom.gd" id="1_d0u7m"]
+[ext_resource type="PackedScene" uid="uid://b827n8duk5ktp" path="res://scenes/fade.tscn" id="2_3wwl0"]
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="2_8oql1"]
 [ext_resource type="PackedScene" uid="uid://drf2xd1ivxd1" path="res://scenes/npc_1.tscn" id="4_xhekj"]
 [ext_resource type="Texture2D" uid="uid://db1q8bo031y30" path="res://assets/inventory_sprites/dairy-inventory.png" id="5_0akh5"]
@@ -44,11 +45,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="room1" type="Node2D" unique_id=596815260]
-script = ExtResource("1_xhekj")
-cameraLimLeft = -960.0
-cameraLimRight = 960.0
-cameraLimTop = -540.0
-cameraLimBottom = 540.0
+script = ExtResource("1_d0u7m")
+
+[node name="Fade" parent="." unique_id=562451645 instance=ExtResource("2_3wwl0")]
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=711645133]
 position = Vector2(-241.00002, 46)
