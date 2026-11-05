@@ -162,7 +162,7 @@ color = Color(0.5704933, 0.53745735, 0.4877851, 1)
 [node name="Book" type="Node2D" parent="Rendering" unique_id=467712283]
 position = Vector2(-315, 231)
 script = ExtResource("6_d0u7m")
-interactionDialogue = "Diary"
+dialogueArray = PackedStringArray("Hello world!", "I am a book!", "Kavin you suck.")
 
 [node name="Interact" type="Area2D" parent="Rendering/Book" unique_id=384632795]
 

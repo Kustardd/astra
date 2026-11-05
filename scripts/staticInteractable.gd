@@ -1,13 +1,12 @@
 extends Node
 
-@export var dialogueTrue: bool
 var interactable: bool
-@export var interactionDialogue: String
+@export var dialogueArray: PackedStringArray
 @onready var interactArea = get_node("Interact")
+var dialogueManager: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#interactArea.monitorable = false
 
 	interactArea.body_exited.connect(_on_body_exited)
 	interactArea.body_entered.connect(_on_body_entered)
@@ -15,20 +14,22 @@ func _ready() -> void:
 
 func _on_body_entered(body: PhysicsBody2D):
 	interactable = true
-	#var astra = $Rendering/Astra
-	#astra.eVisibility = true
-	#print(astra.eVisibility)
-	#print("hello")
-
+	if body.dialogueManager:
+		dialogueManager = body.dialogueManager
+		dialogueManager.visible = true
+		dialogueManager.array = dialogueArray
 
 func _on_body_exited(body: PhysicsBody2D):
 	interactable = false
-	#var astra = $Rendering/Astra
-	#astra.eVisibility = false
+	if dialogueManager and dialogueManager.array:
+		dialogueManager.visible = false
+		dialogueManager.array = []
+	dialogueManager = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		if interactable:
-			print(interactionDialogue)
+	#if Input.is_action_just_pressed("interact"):
+		#if interactable:
+			#print(interactionDialogue)
+	pass

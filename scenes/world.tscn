@@ -83,7 +83,6 @@ position = Vector2(-269, -172)
 shape = SubResource("CircleShape2D_2arpm")
 
 [node name="Fade" parent="." unique_id=562451645 instance=ExtResource("4_k0juu")]
-visible = false
 
 [connection signal="body_entered" from="Room1" to="Room1" method="_on_body_entered"]
 [connection signal="body_exited" from="Room1" to="Room1" method="_on_body_exited"]

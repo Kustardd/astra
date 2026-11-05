@@ -18,8 +18,7 @@ extends CharacterBody2D
 @onready var direction = "front"
 var moving:= false
 
-##@onready var e := $"E for Interact"
-#var eVisibility := false
+@onready var dialogueManager: CanvasLayer = $DialogueManager
 
 func _process(_delta: float) -> void:
 	play_animation(direction)

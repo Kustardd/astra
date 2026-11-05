@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckfwxcblsq8jd"]
+
+[ext_resource type="Script" uid="uid://dwpwqvs5r5rqj" path="res://scripts/dialogue_manager.gd" id="1_k6lpl"]
+
+[node name="DialogueManager" type="CanvasLayer" unique_id=610374728]
+script = ExtResource("1_k6lpl")
+
+[node name="Label" type="Label" parent="." unique_id=120974589]
+offset_left = 364.99976
+offset_top = 193.00005
+offset_right = 497.09973
+offset_bottom = 267.4001
+scale = Vector2(10, 10)
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
