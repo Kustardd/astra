@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://ckfwxcblsq8jd"]
 
 [ext_resource type="Script" uid="uid://dwpwqvs5r5rqj" path="res://scripts/dialogue_manager.gd" id="1_k6lpl"]
+[ext_resource type="FontFile" uid="uid://cx3xja1h2k4f3" path="res://assets/NotoSans-VariableFont_wdth,wght.ttf" id="2_516v5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wppu7"]
+font = ExtResource("2_516v5")
+font_size = 64
 
 [node name="DialogueManager" type="CanvasLayer" unique_id=610374728]
 script = ExtResource("1_k6lpl")
+delay = 0.05
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=438215798]
+offset_left = 285.0
+offset_top = 740.0
+offset_right = 1163.0
+offset_bottom = 1027.0
+color = Color(0.44, 0.27764, 0.2596, 0.5137255)
 
 [node name="Label" type="Label" parent="." unique_id=120974589]
-offset_left = 364.99976
-offset_top = 193.00005
-offset_right = 497.09973
-offset_bottom = 267.4001
-scale = Vector2(10, 10)
-horizontal_alignment = 1
-vertical_alignment = 2
+texture_filter = 1
+custom_minimum_size = Vector2(5, 5)
+offset_left = 291.0
+offset_top = 741.0
+offset_right = 1169.0
+offset_bottom = 1020.0
+text = "Hello World!"
+label_settings = SubResource("LabelSettings_wppu7")
 autowrap_mode = 3
 clip_text = true

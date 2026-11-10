@@ -473,6 +473,8 @@ offset_right = 1900.0
 offset_bottom = -195.0
 
 [node name="E" type="Node2D" parent="." unique_id=1592679584]
+visible = false
+texture_repeat = 1
 position = Vector2(0, -312)
 script = ExtResource("8_t3h82")
 wobbleLength = 4

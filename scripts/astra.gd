@@ -19,6 +19,9 @@ extends CharacterBody2D
 var moving:= false
 
 @onready var dialogueManager: CanvasLayer = $DialogueManager
+@onready var eForInteract: Node2D = $E
+
+var keysArray: PackedStringArray = []
 
 func _process(_delta: float) -> void:
 	play_animation(direction)
@@ -112,3 +115,15 @@ func bumps_animation(movement_direction):
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+
+#func eVisible():
+	#if eForInteract.visible == true:
+		#eForInteract.visible = false
+	#else:
+		#eForInteract.visible = true
+	##eForInteract.visible = !eForInteract.visible
+	#print(eForInteract.visible)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debug"):
+		pass

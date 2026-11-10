@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dt7fmj75mippk" path="res://scenes/astra.tscn" id="8_0fied"]
 [ext_resource type="Script" uid="uid://ccuduwwevrkor" path="res://scripts/baseDoor.gd" id="11_70ynr"]
 [ext_resource type="PackedScene" uid="uid://b827n8duk5ktp" path="res://scenes/fade.tscn" id="12_vxkc8"]
+[ext_resource type="Script" uid="uid://bwb35sps8huk6" path="res://scripts/staticInteractable.gd" id="13_mmegb"]
 
 [sub_resource type="Environment" id="Environment_80elw"]
 background_mode = 3
@@ -55,6 +56,9 @@ size = Vector2(2000, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdqc5"]
 size = Vector2(2000, 200)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs1m4"]
+size = Vector2(69, 388)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1icej"]
 radius = 140.0
 
@@ -66,6 +70,15 @@ width = 100
 height = 300
 fill_from = Vector2(0, 0.503663)
 fill_to = Vector2(1, 0.5915751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn5q7"]
+size = Vector2(159.5, 222.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1icej"]
+size = Vector2(948.5, 349)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80elw"]
+radius = 234.17302
 
 [node name="StartRoom" type="Node2D" unique_id=2140845314]
 script = ExtResource("1_vxkc8")
@@ -164,21 +177,70 @@ shape = SubResource("RectangleShape2D_wgpu7")
 position = Vector2(0, 632)
 shape = SubResource("RectangleShape2D_hdqc5")
 
-[node name="Door" type="Area2D" parent="." unique_id=1822081685]
+[node name="Fade" parent="." unique_id=562451645 instance=ExtResource("12_vxkc8")]
+
+[node name="Interactables" type="Node2D" parent="." unique_id=1563007779]
+
+[node name="Charger (Key)" type="Node2D" parent="Interactables" unique_id=1916089256]
+script = ExtResource("13_mmegb")
+dialogueArray = PackedStringArray("There\'s a button.", " It looks fun to press.", "Do you press it?", "Yes. Yes, you do.", "You hear a small whirring noise behind you.")
+hasKey = true
+keyName = "door1"
+facingLeft = true
+facingFront = true
+facingBack = true
+
+[node name="Interact" type="Area2D" parent="Interactables/Charger (Key)" unique_id=1919542983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Charger (Key)/Interact" unique_id=528413492]
+position = Vector2(45.5, -299)
+shape = SubResource("RectangleShape2D_fs1m4")
+
+[node name="Door" type="Area2D" parent="Interactables" unique_id=1822081685]
 script = ExtResource("11_70ynr")
 roomScene = "uid://bl551lyylk0n5"
+keyName = "door1"
+needsKey = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=564716049]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Door" unique_id=564716049]
 position = Vector2(963, 140)
 shape = SubResource("CircleShape2D_1icej")
 
-[node name="PointLight2D" type="PointLight2D" parent="Door" unique_id=220811482]
+[node name="PointLight2D" type="PointLight2D" parent="Interactables/Door" unique_id=220811482]
 position = Vector2(930, 140)
 color = Color(0.14649808, 0.16674972, 0.2719684, 1)
 texture = SubResource("GradientTexture2D_wgpu7")
 
-[node name="Fade" parent="." unique_id=562451645 instance=ExtResource("12_vxkc8")]
-visible = false
+[node name="Vines" type="Node2D" parent="Interactables" unique_id=358529119]
+script = ExtResource("13_mmegb")
+dialogueArray = PackedStringArray("Moldy vines.", "That\'s not how mold works.")
 
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[node name="Interact" type="Area2D" parent="Interactables/Vines" unique_id=2012397408]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Vines/Interact" unique_id=338446942]
+position = Vector2(487.25, -349)
+shape = SubResource("RectangleShape2D_rn5q7")
+
+[node name="Charger (Main)" type="Node2D" parent="Interactables" unique_id=1116377919]
+script = ExtResource("13_mmegb")
+dialogueArray = PackedStringArray("A charging station.", "You faintly remember plugging in... but it was such a long time ago.")
+facingFront = true
+
+[node name="Interact" type="Area2D" parent="Interactables/Charger (Main)" unique_id=700194293]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Charger (Main)/Interact" unique_id=526566636]
+position = Vector2(-499.25, -281.5)
+shape = SubResource("RectangleShape2D_1icej")
+
+[node name="Bush" type="Node2D" parent="Interactables" unique_id=515823318]
+script = ExtResource("13_mmegb")
+dialogueArray = PackedStringArray("It\'s hard to see in the bushes.", "You step into rugged tread imprints.")
+
+[node name="Interact" type="Area2D" parent="Interactables/Bush" unique_id=745013081]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Bush/Interact" unique_id=332269808]
+position = Vector2(-843, 497)
+shape = SubResource("CircleShape2D_80elw")
+
+[connection signal="body_entered" from="Interactables/Door" to="Interactables/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactables/Door" to="Interactables/Door" method="_on_body_exited"]

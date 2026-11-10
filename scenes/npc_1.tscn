@@ -56,7 +56,8 @@ radius = 146.05478
 
 [node name="NPC 1" type="StaticBody2D" unique_id=1215763232]
 script = ExtResource("1_xr7qm")
-interactionDialogue = "I'm a robot"
+hasKey = true
+keyName = "key1"
 
 [node name="Body" type="Sprite2D" parent="." unique_id=132600005]
 texture_filter = 1

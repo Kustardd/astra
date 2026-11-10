@@ -60,16 +60,18 @@ offset_right = 1923.0
 offset_bottom = 1060.0
 color = Color(0.31, 0.30504, 0.2852, 1)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=997487912]
+[node name="Door" type="Area2D" parent="." unique_id=997487912]
 position = Vector2(-48, 48)
 script = ExtResource("2_8oql1")
 roomScene = "uid://bl551lyylk0n5"
+keyName = "key1"
+needsKey = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=867450068]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=867450068]
 position = Vector2(263, -68)
 shape = SubResource("CircleShape2D_80elw")
 
-[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=1960732758]
+[node name="ColorRect" type="ColorRect" parent="Door" unique_id=1960732758]
 offset_left = 129.0
 offset_top = -129.0
 offset_right = 403.0
@@ -162,7 +164,7 @@ color = Color(0.5704933, 0.53745735, 0.4877851, 1)
 [node name="Book" type="Node2D" parent="Rendering" unique_id=467712283]
 position = Vector2(-315, 231)
 script = ExtResource("6_d0u7m")
-dialogueArray = PackedStringArray("Hello world!", "I am a book!", "Kavin you suck.")
+dialogueArray = PackedStringArray("Hello world!", "I am a book!", "Kavin you suck.", "HHIIHIHIHIHHIHIHIIHIIHIHIIIIHIHIIIHIHIHIHIHIHIHHIHIIHIHIHIHIHHIHIIHIHIHHIHIHI")
 
 [node name="Interact" type="Area2D" parent="Rendering/Book" unique_id=384632795]
 
@@ -184,5 +186,5 @@ color = Color(0.26936325, 0.16145644, 0.053922802, 1)
 texture = SubResource("GradientTexture2D_80elw")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
